@@ -13,6 +13,7 @@ const navItems = [
     { label: "Architecture", id: "architecture" },
     { label: "Leadership", id: "leadership" },
     { label: "Blog", id: "blog" },
+    { label: "Ecosystem", id: "ecosystem" },
     { label: "Contact", id: "contact" },
 ];
 

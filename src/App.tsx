@@ -8,6 +8,7 @@ import Projects from "./sections/Projects";
 import Architecture from "./sections/Architecture";
 import Leadership from "./sections/Leadership";
 import Contact from "./sections/Contact";
+import Ecosystem from "./sections/Ecosystem";
 import Blog from "./sections/Blog";
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
         <Architecture />
         <Leadership />
         <Blog/>
+        <Ecosystem />
         <Contact />
       </main>
       <Footer />
