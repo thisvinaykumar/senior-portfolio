@@ -7,7 +7,7 @@ export interface Experience {
 
 export const experience: Experience[] = [
   {
-    company: "OpsX (opsx.in) — OpsX Apex Private Limited, Gaya",
+    company: "OpsX (opsx.in) — Opsx Apex Private Limited, Gaya",
     title: "Principal System Architect & Product Creator",
     duration: "2026 – Present",
     points: [

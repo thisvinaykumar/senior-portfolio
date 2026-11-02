@@ -17,8 +17,10 @@ export default function Footer() {
         <footer className="bg-background/90 border-t border-slate-800 py-8 mt-16">
             <div className="max-w-7xl mx-auto px-6 md:px-16 flex flex-col md:flex-row justify-between items-center gap-4">
                 <div className="text-header text-sm text-center md:text-left">
-                    <p>&copy; {new Date().getFullYear()} Vinay Kumar (@thisvinaykumar). All rights reserved.</p>
+                    <p>&copy; 2026 Opsx Apex Private Limited. All rights reserved.</p>
                     <p className="mt-1 text-muted">
+                        Vinay Kumar (@thisvinaykumar)
+                        {" · "}
                         <a href={profile.opsx} target="_blank" rel="noopener noreferrer" className="hover:text-primary">OpsX</a>
                         {" · "}
                         <a href={profile.ngo} target="_blank" rel="noopener noreferrer" className="hover:text-primary">Shubhsaathi Foundation</a>
