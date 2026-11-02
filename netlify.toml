@@ -1,0 +1,4 @@
+# dist/ is committed and built locally (npm run build), so Netlify only publishes it.
+[build]
+  publish = "dist"
+  command = ""
