@@ -18,7 +18,7 @@ export default function Contact() {
                     className="mt-4 max-w-2xl"
                 >
                     <p className="text-muted">
-                        Open to senior frontend / full stack roles in product-based companies.
+                        Open to senior software engineer and system architect roles in product-based companies.
                     </p>
 
                     <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-4">

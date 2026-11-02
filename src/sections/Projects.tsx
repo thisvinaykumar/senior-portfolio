@@ -24,6 +24,7 @@ export default function Projects() {
                             className="bg-card p-6 rounded-xl border border-slate-700 hover:border-primary transition"
                         >
                             <h3 className="text-xl font-semibold">{project.title}</h3>
+                            {project.role && <p className="mt-1 text-sm text-primary">{project.role}</p>}
                             <p className="mt-2 text-muted">{project.description}</p>
 
                             <ul className="mt-3 list-disc list-inside text-muted space-y-1">

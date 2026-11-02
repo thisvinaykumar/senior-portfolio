@@ -15,10 +15,10 @@ export default function Summary() {
                     className="mt-6 max-w-4xl text-muted space-y-4"
                 >
                     <p>
-                        Senior Full Stack Engineer with 5+ years of experience building scalable, multi-tenant SaaS platforms for B2B and B2C domains. Proven track record of delivering end-to-end solutions from architecture design to production deployment.
+                        Senior Software Engineer & System Architect with 5+ years of experience building scalable, multi-tenant SaaS and ERP platforms for B2B and B2C domains. Proven track record of delivering end-to-end solutions from architecture design to production deployment.
                     </p>
                     <p>
-                        Expert in Angular, React, Node.js, and TypeScript with deep understanding of system design, API integration, and performance optimization. Skilled in creating modular, maintainable, and high-performance applications.
+                        Works across Node.js, NestJS, Angular, TypeScript, MongoDB, Redis, Docker and AWS EC2, with a deep understanding of system design, microservices, API integration and performance. As Principal System Architect & Product Creator of OpsX (opsx.in), designed edge-first attendance, geofencing, RBAC and automated payroll for Indian SMEs.
                     </p>
                     <p>
                         Passionate about mentoring teams, leading code reviews, and driving engineering best practices. Strong focus on delivering business impact and improving system efficiency by applying thoughtful design and technical ownership.

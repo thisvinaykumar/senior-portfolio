@@ -7,6 +7,19 @@ export interface Experience {
 
 export const experience: Experience[] = [
   {
+    company: "OpsX (opsx.in) — OpsX Apex Private Limited, Gaya",
+    title: "Principal System Architect & Product Creator",
+    duration: "2026 – Present",
+    points: [
+      "Created OpsX, a multi-tenant industrial ERP and workforce OS: attendance, payroll, field staff, kiosk, procurement and stock.",
+      "Architected edge-first attendance: offline SQLite queue with batch sync and on-device face verification on kiosk tablets.",
+      "Built geofenced attendance and field tracking with live maps, trips and proof of delivery.",
+      "Designed tenant isolation (database per tenant), hierarchical RBAC entitlements and maker-checker approval workflows.",
+      "Automated statutory payroll (PF, ESI, TDS, professional tax, full & final) posted to a double-entry ledger in PostgreSQL.",
+      "Run it in production on AWS EC2: NestJS API with rolling restarts, BullMQ workers on Redis, Socket.IO realtime, nginx."
+    ]
+  },
+  {
     company: "EasyRes Travel Technologies Pvt. Ltd., Delhi",
     title: "Software Development Engineer II (Full Stack)",
     duration: "Jul 2024 – Present",

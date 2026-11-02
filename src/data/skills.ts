@@ -1,21 +1,22 @@
-
-
-
-
-
-
-
 export const skills = [
   {
-    title: "Frontend",
-    items: ["Angular", "React", "TypeScript", "RxJS", "NgRx", "Tailwind"],
+    title: "Backend & Architecture",
+    items: ["Node.js", "NestJS", "Express", "TypeScript", "REST APIs", "Microservices", "Multi-Tenant ERP", "RBAC", "Event-driven (outbox, queues)"],
   },
   {
-    title: "Backend",
-    items: ["Node.js", "Express", "REST APIs", "JWT", "RBAC"],
+    title: "Frontend & Mobile",
+    items: ["Angular", "React", "React Native (Expo)", "RxJS", "NgRx", "Tailwind"],
   },
   {
-    title: "Architecture & Domain",
-    items: ["SaaS", "Multi-Tenant Systems", "Wallet Systems", "Pricing Engines"],
+    title: "Data",
+    items: ["MongoDB", "PostgreSQL", "Redis", "BullMQ", "MySQL"],
+  },
+  {
+    title: "Cloud & DevOps",
+    items: ["Docker", "AWS EC2", "nginx", "Linux", "Zero-downtime rolling deploys"],
+  },
+  {
+    title: "Domain",
+    items: ["Attendance & Payroll (PF, ESI, TDS)", "Edge / offline-first apps", "Travel booking", "Pricing & Wallet systems"],
   },
 ];

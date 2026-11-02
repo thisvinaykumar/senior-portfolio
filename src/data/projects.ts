@@ -1,5 +1,6 @@
 export interface Project {
   title: string;
+  role?: string;
   description: string;
   techStack: string[];
   highlights: string[];
@@ -8,6 +9,21 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    title: "OpsX — Industrial ERP & Workforce OS",
+    role: "Principal System Architect & Product Creator",
+    description:
+      "Multi-tenant SaaS ERP for Indian SMEs and plants: attendance, payroll, field staff, factory kiosk, procurement and stock. Designed, built and operated end to end.",
+    techStack: ["NestJS", "Node.js", "Angular", "TypeScript", "MongoDB", "PostgreSQL", "Redis", "BullMQ", "React Native", "Docker", "AWS EC2"],
+    highlights: [
+      "Edge computing: offline-first SQLite queue on Android devices with store-and-forward batch sync, and on-device face verification on kiosk tablets — no image leaves the device.",
+      "Geofenced attendance and field tracking: GPS geofences, live map, trips and proof of delivery.",
+      "Multi-tenant isolation: a dedicated MongoDB database per tenant and a tenant-scope layer that pins every write; hierarchical RBAC entitlements with maker-checker approvals.",
+      "Automated payroll: PF, ESI, TDS, professional tax, arrears and full & final settlement, posted to a double-entry general ledger in PostgreSQL through an outbox.",
+      "Operations: NestJS API on two instances with rolling restarts, BullMQ workers on Redis and Socket.IO realtime on AWS EC2 behind nginx."
+    ],
+    liveDemo: "https://opsx.in/"
+  },
   {
     title: "Multi-Tenant SaaS Travel Platform",
     description:

@@ -18,12 +18,13 @@ export default function Hero() {
                         Vinay Kumar
                     </h1>
                     <p className="mt-4 text-xl text-muted">
-                        Senior Full Stack Engineer · SaaS · B2B/B2C · System Ownership
+                        Senior Software Engineer &amp; System Architect · Node.js · NestJS · Angular · Multi-Tenant ERP
                     </p>
 
                     <p className="mt-6 text-muted max-w-2xl">
-                        5+ years building large-scale multi-tenant SaaS platforms with
-                        ownership from architecture to production.
+                        5+ years building multi-tenant SaaS platforms. Creator of{" "}
+                        <a href="https://opsx.in/" target="_blank" rel="noopener" className="text-primary hover:underline">OpsX</a>,
+                        an industrial ERP and workforce OS — owned from architecture to production.
                     </p>
 
                     <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:items-center">
@@ -31,7 +32,7 @@ export default function Hero() {
 
                         <Button
                             variant="primary"
-                            href="/assets/Vinay_Kumar_Senior_Full_Stack_Engineer_5Yrs_.pdf"
+                            href="/assets/Vinay_Kumar_Senior_Software_Engineer_System_Architect.pdf"
                             download
                             ariaLabel="Download Vinay Kumar resume PDF"
                             className="w-full sm:w-auto py-3 justify-center"
