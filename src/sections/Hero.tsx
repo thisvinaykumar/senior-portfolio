@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Button from "../components/ui/Button";
 import Container from "../components/layout/Container";
 import DownloadIcon from "../components/ui/icons/DownloadIcon";
+import { profile } from "../data/profile";
 
 export default function Hero() {
     return (
@@ -41,7 +42,7 @@ export default function Hero() {
                             </span>
                         </Button>
 
-                        <Button variant="secondary" href="https://github.com/krvinay0" target="_blank" ariaLabel="Open GitHub in new tab" className="w-full sm:w-auto py-3 justify-center">
+                        <Button variant="secondary" href={profile.github} target="_blank" ariaLabel="Open GitHub in new tab" className="w-full sm:w-auto py-3 justify-center">
                             GitHub
                         </Button>
                     </div>

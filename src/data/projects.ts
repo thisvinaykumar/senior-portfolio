@@ -18,7 +18,7 @@ export const projects: Project[] = [
       "Built pricing engines, markup rules, and wallet systems ensuring financial accuracy.",
       "Integrated multiple third-party travel APIs for real-time pricing and booking."
     ],
-    github: "https://github.com/krvinay0/multi-tenant-saas",
+    github: "https://github.com/thisvinaykumar/multi-tenant-saas",
     liveDemo: "https://easyres-travel.com"
   },
   {
