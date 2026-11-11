@@ -16,8 +16,8 @@ export default function Contact() {
                 <Reveal>
                     <Spotlight className="relative overflow-hidden p-6 sm:p-8 md:p-14">
                         <div
-                            className="pointer-events-none absolute -right-32 -top-32 h-80 w-80 rounded-full blur-3xl"
-                            style={{ background: "var(--glow)" }}
+                            className="pointer-events-none absolute -right-40 -top-40 h-[28rem] w-[28rem] rounded-full"
+                            style={{ background: "radial-gradient(circle, var(--glow) 0%, transparent 65%)" }}
                             aria-hidden="true"
                         />
                         <p className="eyebrow mb-3">{chapters.contact}</p>

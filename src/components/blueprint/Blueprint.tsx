@@ -1,5 +1,5 @@
-import { useState, type KeyboardEvent } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { useRef, useState, type KeyboardEvent } from "react";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import clsx from "clsx";
 import { flows, blueprintIntro, type BpFlow, type BpNode, type BpScenario, type Pt } from "../../content/blueprint";
 
@@ -37,6 +37,9 @@ const touches = (n: BpNode, [px, py]: Pt) => {
 
 export default function Blueprint() {
     const reduce = useReducedMotion();
+    // The packet loops forever; only run it while the diagram is on screen.
+    const diagram = useRef<HTMLDivElement>(null);
+    const onScreen = useInView(diagram, { margin: "100px 0px" });
     const [flowId, setFlowId] = useState(flows[0].id);
     const flow = flows.find((f) => f.id === flowId) as BpFlow;
     const [scenarioId, setScenarioId] = useState(flow.scenarios[0].id);
@@ -118,7 +121,7 @@ export default function Blueprint() {
 
                 <div className="grid grid-cols-[minmax(0,1fr)] gap-0 lg:grid-cols-[minmax(0,1fr)_300px]">
                     {/* Diagram */}
-                    <div className="bp-scroll" tabIndex={-1}>
+                    <div ref={diagram} className="bp-scroll" tabIndex={-1}>
                         <svg
                             key={flow.id}
                             viewBox={`0 0 1000 ${flow.height}`}
@@ -136,13 +139,6 @@ export default function Blueprint() {
                                 <marker id="bp-arrow-lit" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                                     <path d="M0 0L10 5L0 10z" fill={tone} />
                                 </marker>
-                                <filter id="bp-glow" x="-50%" y="-50%" width="200%" height="200%">
-                                    <feGaussianBlur stdDeviation="4" result="b" />
-                                    <feMerge>
-                                        <feMergeNode in="b" />
-                                        <feMergeNode in="SourceGraphic" />
-                                    </feMerge>
-                                </filter>
                             </defs>
                             <rect width="1000" height={flow.height} fill="url(#bp-grid)" />
 
@@ -224,12 +220,13 @@ export default function Blueprint() {
                             })}
 
                             {/* Packet */}
-                            {!reduce && (
-                                <g key={`${flow.id}-${scenario.id}`} filter="url(#bp-glow)" pointerEvents="none">
-                                    <circle r="7" fill={tone}>
-                                        <animateMotion dur={`${dur}s`} repeatCount="indefinite" path={route} />
-                                        <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.06;0.9;1" dur={`${dur}s`} repeatCount="indefinite" />
-                                    </circle>
+                            {!reduce && onScreen && (
+                                // A soft halo circle instead of an SVG blur filter: filters repaint every frame.
+                                <g key={`${flow.id}-${scenario.id}`} pointerEvents="none">
+                                    <animateMotion dur={`${dur}s`} repeatCount="indefinite" path={route} />
+                                    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.06;0.9;1" dur={`${dur}s`} repeatCount="indefinite" />
+                                    <circle r="13" fill={tone} opacity="0.22" />
+                                    <circle r="7" fill={tone} />
                                 </g>
                             )}
                         </svg>

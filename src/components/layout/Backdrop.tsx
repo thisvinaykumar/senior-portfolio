@@ -1,4 +1,4 @@
-/** Fixed decorative background: a faded engineering grid and two slow-drifting glows. */
+/** Fixed decorative background: a faded engineering grid and two static glows (no blur filter, no animation: both cost a full repaint per scroll frame). */
 export default function Backdrop() {
     return (
         <div className="backdrop" aria-hidden="true">

@@ -70,7 +70,7 @@ export default function Navbar() {
         <header
             className={clsx(
                 "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300",
-                scrolled || open ? "border-b border-line bg-[color-mix(in_srgb,var(--bg)_78%,transparent)] backdrop-blur-xl" : "border-b border-transparent",
+                scrolled || open ? "border-b border-line bg-[color-mix(in_srgb,var(--bg)_94%,transparent)]" : "border-b border-transparent",
             )}
         >
             <nav className="mx-auto flex h-16 max-w-page items-center justify-between gap-4 px-5 md:px-8">
