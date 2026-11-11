@@ -11,9 +11,9 @@
 <meta charset="utf-8">
 <title>Vinay Kumar — Resume</title>
 <style>
-  @page { size: A4; margin: 10mm 13mm; }
+  @page { size: A4; margin: 9mm 13mm; }
   * { box-sizing: border-box; }
-  body { font-family: "Segoe UI", Arial, sans-serif; color: #1e293b; font-size: 9.6pt; line-height: 1.33; margin: 0; }
+  body { font-family: "Segoe UI", Arial, sans-serif; color: #1e293b; font-size: 9.5pt; line-height: 1.33; margin: 0; }
   h1 { font-size: 21pt; margin: 0; color: #0c4a6e; letter-spacing: .3px; }
   .role { font-size: 11.5pt; font-weight: 600; color: #0369a1; margin-top: 2px; }
   .contact { margin-top: 5px; font-size: 9.2pt; color: #334155; }
@@ -47,24 +47,23 @@
 
   <h2>Summary</h2>
   <p>Senior software engineer and system architect with 5+ years across high-scale multi-tenant travel SaaS and
-  complex distributed systems / ERPs, covering system design, microservices and end-to-end delivery on Node.js, NestJS, Angular and TypeScript with MongoDB, PostgreSQL, Redis and AWS. At EasyRes (since 2022) I am the top contributor to a
+  complex distributed systems / ERPs, covering system design, microservices and delivery on Node.js, NestJS, Angular and TypeScript with MongoDB, PostgreSQL, Redis and AWS. Top contributor at EasyRes (since 2022) to a
   multi-tenant B2B/B2C travel marketplace — about 3,000 commits across 24 repositories and 480+ merged pull
-  requests — where I work directly with client stakeholders from requirements to delivery, and have built the B2B agent portal, created the travel-insurance and Via.com ferry microservices,
-  and integrated flight, hotel, ferry, transfer and payment suppliers. I also created OpsX (opsx.in), an
-  industrial ERP and workforce OS, which I architected and run in production.</p>
+  requests; works directly with client stakeholders from requirements to delivery; delivered the B2B agent portal, the travel insurance and Via.com ferry microservices,
+  and flight, hotel, ferry, transfer and payment supplier integrations. Architected and runs OpsX (opsx.in), a multi-tenant ERP in production.</p>
 
   <h2>Work Experience</h2>
   <div class="item">
     <div class="head"><span>OpsX (opsx.in) — Opsx Apex Private Limited, Gaya</span><span class="when">Jan 2026 – Present</span></div>
     <div class="sub">Principal System Architect &amp; Product Creator</div>
     <ul>
-      <li>Created OpsX, a multi-tenant industrial ERP and workforce OS (attendance, payroll, field staff, factory kiosk, procurement, stock) — 760+ commits as sole engineer; Nx monorepo of 7 apps over 50+ backend domains.</li>
-      <li><b>Edge computing:</b> React Native (Expo) field and kiosk apps; offline-first SQLite queue with batch sync; on-device face verification on kiosk tablets — no image leaves the device.</li>
-      <li><b>Tenant isolation &amp; RBAC:</b> a shared or dedicated MongoDB database per tenant (by plan), a tenant-scope layer that pins every write, hierarchical entitlements and maker-checker approvals.</li>
-      <li><b>Automated payroll:</b> PF, ESI, TDS, professional tax, arrears and full &amp; final, posted to a double-entry ledger in PostgreSQL through an outbox.</li>
-      <li><b>Gateway-free UPI collection</b> (built, pre-launch): UPI QR per invoice; the payer's UTR is a claim, not proof: compare-and-set approval, a one-use UTR index and bank-statement auto-matching (HDFC, SBI, Kotak, Axis).</li>
-      <li><b>Security &amp; scale:</b> RS256 JWT with MFA, per-route rate limiting, helmet and CSP; Redis caching with version-stamped invalidation on the check-in and RBAC hot paths.</li>
-      <li><b>CI/CD:</b> GitHub Actions runs lint, Jest unit tests (700+ test files) and build on every PR; zero-downtime rolling deploys on AWS EC2 (two NestJS instances, BullMQ workers, Socket.IO, nginx).</li>
+      <li>Architected and shipped OpsX, a multi-tenant industrial ERP and workforce OS (attendance, payroll, field staff, factory kiosk, procurement, stock) — 760+ commits as sole engineer; Nx monorepo of 7 apps over 50+ backend domains.</li>
+      <li><b>Engineered edge computing:</b> React Native (Expo) field and kiosk apps; offline-first SQLite queue with batch sync; on-device face verification on kiosk tablets — no image leaves the device.</li>
+      <li><b>Designed tenant isolation &amp; RBAC:</b> a shared or dedicated MongoDB database per tenant (by plan), a tenant-scope layer that pins every write, hierarchical entitlements and maker-checker approvals.</li>
+      <li><b>Automated payroll:</b> PF, ESI, TDS, professional tax, arrears, full &amp; final; posted via an outbox to a PostgreSQL double-entry ledger.</li>
+      <li><b>Built gateway-free UPI collection</b> (pre-launch): UPI QR per invoice; the payer's UTR is a claim, not proof: compare-and-set approval, a one-use UTR index and bank-statement auto-matching (HDFC, SBI, Kotak, Axis).</li>
+      <li><b>Hardened security and scaled reads:</b> RS256 JWT with MFA, per-route rate limiting, helmet and CSP; Redis caching with version-stamped invalidation on the check-in and RBAC hot paths.</li>
+      <li><b>Set up CI/CD:</b> GitHub Actions runs lint, Jest unit tests (700+ test files) and build on every PR; zero-downtime rolling deploys on AWS EC2 (two NestJS instances, BullMQ workers, Socket.IO, nginx).</li>
     </ul>
   </div>
 
@@ -73,15 +72,15 @@
     <div class="sub">Software Development Engineer II (Full Stack)</div>
     <p class="desc">Multi-tenant B2B/B2C travel marketplace: 20+ Node.js microservices, Angular 14 and white-label portals, subscriber, agency and agent tiers. Integrations: <b>Travelport and Sabre GDS</b>, <b>Atlas LCC aggregator</b>; <b>RateHawk, GRN Connect, Dida, Bedsonline, Via Hotels</b>; <b>2GO, Barkota, Starlite, Via</b> ferries; <b>Jayride</b> transfers; <b>Xendit, PayMongo</b>; in-house packages, tours and visa.</p>
     <ul>
-      <li><b>Client-facing ownership:</b> gathered requirements with client stakeholders and designed solutions for ferries, hotels, visa, packages, airport shuttles and payments; owned delivery end to end.</li>
-      <li><b>Round trips on one-way supplier APIs:</b> Barkota and 2GO lack native round trips, so designed them on single-journey APIs: separate searches priced together, one payment, two reservations tracked per leg. As 2GO cannot cancel or release seats, both legs are validated before any hold.</li>
-      <li><b>Ferries:</b> built the <b>Via.com ferry service</b> from scratch (seat block, payment, restart-safe status polling); 2GO's B2C API with restricted fares and per-agency permissions; Barkota's B2B channel; Starlite refunds, voids and ticketing.</li>
-      <li><b>Money-safe bookings:</b> atomic claims before wallet or supplier side effects, automatic wallet reversal, manual review for unknown outcomes; proven by a <b>138-check offline test harness</b> and a ferry regression suite.</li>
-      <li><b>Hotels:</b> main contributor to <b>RateHawk</b>, built from client requirements (booking, status, cancellation penalties, hourly S3 log archive); Via Hotels per-tenant credentials and pricing fix.</li>
-      <li><b>In-house products (no third-party supplier):</b> visa processing modules plus the original visa service setup; holiday and tour packages with tenant-managed suppliers, prices and currencies (140+ backend commits).</li>
-      <li><b>Shuttles &amp; insurance:</b> <b>Jayride</b> booking, wallet payment and redirects to client use cases; <b>created the travel-insurance microservice</b> (quotes, policies, gateway and wallet booking).</li>
-      <li><b>Payments &amp; pricing:</b> <b>Xendit</b> end to end (sessions, webhooks, per-tenant config), PayMongo checkout, email-OTP login; grade codes, agency markups, multi-currency precision; Angular flight booking over Travelport, Sabre and Atlas.</li>
-      <li><b>Engineering practice:</b> Agile delivery tracked in Jira; merged 480+ pull requests incl. release and hot-fix branches; mentor to junior developers; Claude Code and GitHub Copilot, with every change reviewed and tested.</li>
+      <li><b>Owned client delivery:</b> gathered requirements with client stakeholders and designed solutions for ferries, hotels, visa, packages, airport shuttles and payments, end to end.</li>
+      <li><b>Designed round trips on one-way supplier APIs:</b> Barkota and 2GO lack native round trips, so round trips run on their single-journey APIs: separate searches priced together, one payment, two reservations tracked per leg. As 2GO cannot cancel or release seats, both legs are validated before any hold.</li>
+      <li><b>Integrated ferries:</b> developed the <b>Via.com ferry service</b> from scratch (seat block, payment, restart-safe status polling); 2GO's B2C API with restricted fares and per-agency permissions; Barkota's B2B channel; Starlite refunds, voids and ticketing.</li>
+      <li><b>Engineered money-safe bookings:</b> atomic claims before wallet or supplier side effects, automatic wallet reversal, manual review for unknown outcomes; proven by a <b>138-check offline test harness</b> and a ferry regression suite.</li>
+      <li><b>Delivered hotel integrations:</b> main contributor to <b>RateHawk</b>, implemented from client requirements (booking, status, cancellation penalties, hourly S3 log archive); Via Hotels per-tenant credentials and pricing fix.</li>
+      <li><b>Launched in-house products (no third-party supplier):</b> visa processing modules plus the original visa service setup; holiday and tour packages with tenant-managed suppliers, prices and currencies (140+ backend commits).</li>
+      <li><b>Integrated shuttles &amp; insurance:</b> <b>Jayride</b> booking, wallet payment and redirects to client use cases; <b>developed the travel insurance microservice</b> (quotes, policies, gateway and wallet booking).</li>
+      <li><b>Integrated payments &amp; pricing:</b> <b>Xendit</b> end to end (sessions, webhooks, per-tenant config), PayMongo checkout, email-OTP login; grade codes, agency markups, multi-currency precision; Angular flight booking over Travelport, Sabre and Atlas.</li>
+      <li><b>Drove engineering quality:</b> Agile delivery tracked in Jira; merged 480+ pull requests incl. release and hotfix branches; mentored junior developers; Claude Code and GitHub Copilot, with every change reviewed and tested.</li>
     </ul>
   </div>
 
@@ -91,10 +90,10 @@
     <ul>
       <li><b>Top contributor</b> to the Angular consumer portal and the subscriber-admin portal (about 280 admin components across flights, hotels, tours, visa, ferry, shuttle and insurance).</li>
       <li><b>Built the B2B agent portal from scratch</b> (Nov 2023): flights, hotels, account management, agent home page.</li>
-      <li>Built the B2C hotel booking flow (search, filters, paging, cancellation policy, promo codes), later Hotel v2 for B2B/B2C.</li>
-      <li>Built airport-transfer and visa modules (search, application, status tracking); set up the visa microservice in Node.js.</li>
-      <li>Built multi-method checkout with per-method absolute or percentage surcharges (card, bank transfer, UPI, e-wallets), wallet top-up and credit requests, agency earnings, grade plans and agency/airline markup screens.</li>
-      <li>Created a per-product SCSS theming system used by several white-label tenant portals; booking voucher, itinerary and e-ticket generation.</li>
+      <li>Developed the B2C hotel booking flow (search, filters, paging, cancellation policy, promo codes) and Hotel v2 for B2B/B2C.</li>
+      <li>Implemented airport-transfer and visa modules (search, application, tracking); set up the Node.js visa microservice.</li>
+      <li>Engineered multi-method checkout with per-method absolute or percentage surcharges (card, bank transfer, UPI, e-wallets), wallet top-up and credit requests, agency earnings, grade plans and agency/airline markup screens.</li>
+      <li>Designed a per-product SCSS theming system for white-label tenant portals; generated booking vouchers, itineraries and e-tickets.</li>
     </ul>
   </div>
 
@@ -102,7 +101,7 @@
     <div class="head"><span>VKREATE Software Technologies Pvt. Ltd., Jaipur</span><span class="when">Jun 2021 – Jun 2022</span></div>
     <div class="sub">Junior Front-End Developer</div>
     <ul>
-      <li>Built and maintained production CRM dashboards in Angular; integrated REST APIs for real-time data visualization, reporting.</li>
+      <li>Developed and maintained production CRM dashboards in Angular; integrated REST APIs for real-time visualization and reporting.</li>
       <li>Built responsive web pages and UI components with React.js, JavaScript, HTML, CSS, Bootstrap and SASS; improved UI performance and usability.</li>
     </ul>
   </div>
@@ -114,7 +113,7 @@
 
   <div class="item">
     <div class="head"><span>OYS InfoTel Pvt. Ltd., Jaipur <span class="sub">· Web Development Intern (PHP/MySQL)</span></span><span class="when">Jun 2019 – Jul 2019</span></div>
-    <ul><li>Worked on Educationwork.com, doing web development with PHP and MySQL, trained under a senior web developer.</li></ul>
+    <ul><li>Contributed to Educationwork.com web development with PHP and MySQL, trained under a senior web developer.</li></ul>
   </div>
 
   <h2>Selected Projects</h2>
@@ -131,10 +130,10 @@
   <div class="item">
     <div class="head"><span>Content Automation Platform — video, podcast &amp; social publishing (personal)</span></div>
     <div class="sub">Python, FFmpeg, Node.js, YouTube Data API, Meta Graph, LinkedIn &amp; X APIs, Cloudflare R2</div>
-    <ul><li>Resumable multi-stage pipeline (script, voice, images, render, scheduled upload) with per-stage checkpoints and a cross-process ledger lock; idempotent fan-out to YouTube, Instagram, Facebook, LinkedIn and X via a dedup ledger with atomic writes; self-hosted podcast RSS on R2; 65 tests.</li></ul>
+    <ul><li>Resumable multi-stage pipeline (script, voice, images, render, upload) with per-stage checkpoints and a cross-process ledger lock; idempotent fan-out to YouTube, Instagram, Facebook, LinkedIn and X via a deduplication ledger with atomic writes; self-hosted podcast RSS on R2; 65 tests.</li></ul>
   </div>
 
-  <h2>Technical Skills</h2>
+  <h2>Skills</h2>
   <div class="skills">
     <div><b>Languages:</b> JavaScript (ES6+), TypeScript, HTML5, CSS3 / SCSS, SQL</div>
     <div><b>Backend &amp; Architecture:</b> Node.js, NestJS, Express, TypeScript, REST &amp; SOAP APIs, microservices, multi-tenant SaaS, RBAC, event-driven, message queues (BullMQ, Postgres outbox), JWT auth &amp; MFA, rate limiting, idempotent payment flows</div>
