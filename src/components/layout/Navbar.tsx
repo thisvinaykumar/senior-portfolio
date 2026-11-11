@@ -1,113 +1,162 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-scroll"; // smooth scroll
-import { HiMenu, HiX } from "react-icons/hi";
-import { FaSun, FaMoon } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
+import { Menu, Moon, Search, Sun, X } from "lucide-react";
 import clsx from "clsx";
 import { nav } from "../../content/site";
+import { useUi } from "../../state/ui";
+import { paletteKey, scrollToId } from "../../utils/nav";
 
 const navItems = nav.items;
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
-    const getInitialTheme = () => {
-        if (typeof window === 'undefined') return 'dark';
-        const s = localStorage.getItem('theme') as 'dark' | 'light' | null;
-        if (s) return s;
-        return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-    };
-    const [theme, setTheme] = useState<'dark' | 'light'>(getInitialTheme);
+    const [active, setActive] = useState("hero");
+    const [scrolled, setScrolled] = useState(false);
+    const { theme, toggleTheme, setPaletteOpen } = useUi();
+    const { scrollYProgress } = useScroll();
+    const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 30, mass: 0.3 });
 
+    // Highlight the section currently in view.
     useEffect(() => {
-        const root = document.documentElement;
-        if (theme === 'light') root.classList.add('light');
-        else root.classList.remove('light');
-        try { localStorage.setItem('theme', theme); } catch { /* storage blocked (private mode) — theme still applies */ }
-    }, [theme]);
+        const sections = navItems.map((i) => document.getElementById(i.id)).filter(Boolean) as HTMLElement[];
+        const io = new IntersectionObserver(
+            (entries) => {
+                const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+                if (visible[0]) setActive(visible[0].target.id);
+            },
+            { rootMargin: "-40% 0px -55% 0px", threshold: [0, 0.25, 0.5, 1] },
+        );
+        sections.forEach((s) => io.observe(s));
+        const onScroll = () => setScrolled(window.scrollY > 8);
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => {
+            io.disconnect();
+            window.removeEventListener("scroll", onScroll);
+        };
+    }, []);
+
+    const go = (id: string) => (e: React.MouseEvent) => {
+        e.preventDefault();
+        setOpen(false);
+        scrollToId(id);
+    };
 
     return (
-        <nav className="fixed w-full bg-background/80 backdrop-blur-md z-50 border-b border-slate-800">
-            <div className="max-w-7xl mx-auto px-6 md:px-16 flex justify-between items-center h-16">
-                <div className="text-2xl font-bold text-primary">{nav.brand}</div>
+        <header
+            className={clsx(
+                "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300",
+                scrolled || open ? "border-b border-line bg-[color-mix(in_srgb,var(--bg)_78%,transparent)] backdrop-blur-xl" : "border-b border-transparent",
+            )}
+        >
+            <nav className="mx-auto flex h-16 max-w-page items-center justify-between gap-4 px-5 md:px-8">
+                <a href="#hero" onClick={go("hero")} className="flex shrink-0 items-center gap-2 whitespace-nowrap text-lg font-semibold tracking-tight text-ink">
+                    <span className="grid h-7 w-7 place-items-center rounded-lg border border-line-strong font-mono text-xs text-accent" aria-hidden="true">
+                        vk
+                    </span>
+                    <span>{nav.brand}</span>
+                </a>
 
-                {/* Desktop Menu */}
-                <div className="hidden md:flex items-center gap-6">
-                    <ul className="flex gap-8 text-header font-medium">
-                        {navItems.map((item) => (
-                            <li key={item.id} className="hover:text-primary transition">
-                                <Link
-                                    to={item.id}
-                                    smooth
-                                    duration={500}
-                                    offset={-80} // adjust for navbar height
-                                >
-                                    {item.label}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
+                {/* Desktop links */}
+                <ul className="hidden min-w-0 items-center gap-0.5 whitespace-nowrap xl:flex">
+                    {navItems.map((item) => (
+                        <li key={item.id}>
+                            <a
+                                href={`#${item.id}`}
+                                onClick={go(item.id)}
+                                aria-current={active === item.id ? "location" : undefined}
+                                className={clsx(
+                                    "rounded-lg px-2.5 py-1.5 text-sm transition-colors",
+                                    active === item.id ? "text-ink bg-[color-mix(in_srgb,var(--accent)_12%,transparent)]" : "text-muted hover:text-ink",
+                                )}
+                            >
+                                {item.label}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
 
-                    {/* Theme toggle (desktop) */}
+                <div className="flex shrink-0 items-center gap-2">
                     <button
-                        aria-label={nav.toggleTheme}
-                        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                        className="text-header ml-2 focus:outline-none"
+                        type="button"
+                        onClick={() => setPaletteOpen(true)}
+                        className="hidden items-center gap-2 whitespace-nowrap rounded-xl border border-line px-3 py-1.5 text-sm text-muted transition-colors hover:border-line-strong hover:text-ink sm:flex"
                     >
-                        {theme === 'dark' ? <FaSun /> : <FaMoon />}
+                        <Search size={15} aria-hidden="true" />
+                        <span>{nav.search}</span>
+                        <span className="kbd">{paletteKey}</span>
                     </button>
-                </div>
-
-                {/* Mobile Menu Button */}
-                <div className="md:hidden flex items-center gap-3">
                     <button
+                        type="button"
                         aria-label={nav.toggleTheme}
-                        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                        className="text-header mr-3 focus:outline-none"
+                        onClick={toggleTheme}
+                        className="grid h-9 w-9 place-items-center rounded-xl border border-line text-muted transition-colors hover:text-ink"
                     >
-                        {theme === 'dark' ? <FaSun /> : <FaMoon />}
+                        {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
                     </button>
-
                     <button
+                        type="button"
                         aria-label={nav.toggleMenu}
                         aria-expanded={open}
+                        aria-controls="mobile-menu"
                         onClick={() => setOpen(!open)}
-                        className="text-header focus:outline-none"
+                        className="grid h-9 w-9 place-items-center rounded-xl border border-line text-muted xl:hidden"
                     >
-                        {open ? <HiX size={28} /> : <HiMenu size={28} />}
+                        {open ? <X size={18} /> : <Menu size={18} />}
                     </button>
                 </div>
-            </div>
+            </nav>
 
-            {/* Mobile Menu */}
-            <ul
+            <motion.div className="h-px origin-left bg-accent" style={{ scaleX: progress }} aria-hidden="true" />
+
+            {/* Mobile / tablet menu (always rendered so its links stay in the page) */}
+            <div
+                id="mobile-menu"
                 className={clsx(
-                    "md:hidden flex flex-col gap-6 bg-background/95 backdrop-blur-md absolute w-full px-6 py-8 transition-all duration-300 ease-out",
-                    open ? "top-16 opacity-100 pointer-events-auto translate-y-0" : "top-16 opacity-0 pointer-events-none -translate-y-4"
+                    "absolute inset-x-0 top-16 border-b border-line bg-[var(--bg)] px-5 pb-6 pt-2 transition-all duration-300 ease-out xl:hidden",
+                    open ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-3 opacity-0",
                 )}
+                aria-hidden={!open}
             >
-                {navItems.map((item) => (
-                    <li key={item.id} className="text-header font-medium text-lg">
-                        <Link
-                            to={item.id}
-                            smooth
-                            duration={500}
-                            offset={-80}
-                            onClick={() => setOpen(false)}
-                        >
-                            {item.label}
-                        </Link>
-                    </li>
-                ))}
-
-                <li className="pt-2">
+                <ul className="grid grid-cols-2 gap-1 sm:grid-cols-3">
+                    {navItems.map((item) => (
+                        <li key={item.id}>
+                            <a
+                                href={`#${item.id}`}
+                                onClick={go(item.id)}
+                                tabIndex={open ? 0 : -1}
+                                className={clsx(
+                                    "block rounded-lg px-3 py-2.5 text-[0.95rem]",
+                                    active === item.id ? "text-ink bg-[color-mix(in_srgb,var(--accent)_12%,transparent)]" : "text-muted",
+                                )}
+                            >
+                                {item.label}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+                <div className="mt-4 flex gap-2">
                     <button
-                        aria-label={nav.toggleTheme}
-                        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                        className="text-slate-300 font-medium text-lg"
+                        type="button"
+                        tabIndex={open ? 0 : -1}
+                        onClick={toggleTheme}
+                        className="btn btn-ghost flex-1 py-2.5"
                     >
                         {theme === "dark" ? nav.lightMode : nav.darkMode}
                     </button>
-                </li>
-            </ul>
-        </nav>
+                    <button
+                        type="button"
+                        tabIndex={open ? 0 : -1}
+                        onClick={() => {
+                            setOpen(false);
+                            setPaletteOpen(true);
+                        }}
+                        className="btn btn-ghost flex-1 py-2.5"
+                    >
+                        <Search size={15} aria-hidden="true" /> {nav.search}
+                    </button>
+                </div>
+            </div>
+        </header>
     );
 }

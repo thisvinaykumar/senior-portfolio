@@ -1,29 +1,12 @@
-import type { FC } from "react";
-import { motion } from "framer-motion";
+import { Reveal } from "../motion/Reveal";
 
-interface SectionHeadingProps {
-    title: string;
-    subtitle?: string;
-}
-
-const SectionHeading: FC<SectionHeadingProps> = ({ title, subtitle }) => {
+/** Chapter heading: mono eyebrow, large title, optional subtitle. */
+export default function SectionHeading({ title, subtitle, eyebrow }: { title: string; subtitle?: string; eyebrow?: string }) {
     return (
-        <div className="mb-8 text-center md:text-left">
-            <motion.h2 className="text-3xl md:text-4xl font-bold inline-block border-b-4 border-primary pb-2"
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-            >
-                {title}
-            </motion.h2>
-            <div className="mt-3 h-1 w-20 rounded bg-gradient-to-r from-primary/50 to-transparent" />
-            {subtitle && (
-                <p className="mt-2 text-muted text-sm md:text-base max-w-xl">
-                    {subtitle}
-                </p>
-            )}
-        </div>
+        <Reveal className="mb-10 md:mb-14">
+            {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
+            <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">{title}</h2>
+            {subtitle && <p className="mt-4 max-w-2xl text-base text-muted md:text-lg">{subtitle}</p>}
+        </Reveal>
     );
-};
-
-export default SectionHeading;
+}

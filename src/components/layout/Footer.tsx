@@ -16,22 +16,28 @@ const SOCIALS: { label: string; url: string; Icon: IconType }[] = [
 
 export default function Footer() {
     return (
-        <footer className="bg-background/90 border-t border-slate-800 py-8 mt-16">
-            <div className="max-w-7xl mx-auto px-6 md:px-16 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div className="text-header text-sm text-center md:text-left">
+        <footer className="border-t border-line pb-24 pt-10">
+            <div className="mx-auto flex max-w-page flex-col items-center justify-between gap-6 px-5 md:flex-row md:px-8">
+                <div className="text-center text-sm text-muted md:text-left">
                     <p>{footer.copyright}</p>
-                    <p className="mt-1 text-muted">
+                    <p className="mt-1 text-faint">
                         {footer.byline}
                         {" · "}
-                        <a href={profile.opsx} target="_blank" rel="noopener noreferrer" className="hover:text-primary">{footer.opsx}</a>
+                        <a href={profile.opsx} target="_blank" rel="noopener noreferrer" className="hover:text-accent">
+                            {footer.opsx}
+                        </a>
                         {" · "}
-                        <a href={profile.ngo} target="_blank" rel="noopener noreferrer" className="hover:text-primary">{footer.ngo}</a>
+                        <a href={profile.ngo} target="_blank" rel="noopener noreferrer" className="hover:text-accent">
+                            {footer.ngo}
+                        </a>
                         {" · "}
-                        <a href={footer.allProfiles.href} className="hover:text-primary">{footer.allProfiles.label}</a>
+                        <a href={footer.allProfiles.href} className="hover:text-accent">
+                            {footer.allProfiles.label}
+                        </a>
                     </p>
                 </div>
 
-                <div className="flex gap-5 text-header items-center">
+                <div className="flex items-center gap-1 text-muted">
                     {SOCIALS.map(({ label, url, Icon }) => (
                         <a
                             key={url}
@@ -40,13 +46,18 @@ export default function Footer() {
                             rel="me noopener noreferrer"
                             aria-label={label}
                             title={label}
-                            className="hover:text-primary transition"
+                            className="grid h-9 w-9 place-items-center rounded-lg transition-colors hover:text-accent"
                         >
-                            <Icon size={18} />
+                            <Icon size={17} />
                         </a>
                     ))}
-                    <a href={`mailto:${profile.email}`} aria-label={L.email} title={profile.email} className="hover:text-primary transition">
-                        <FaEnvelope size={18} />
+                    <a
+                        href={`mailto:${profile.email}`}
+                        aria-label={L.email}
+                        title={profile.email}
+                        className="grid h-9 w-9 place-items-center rounded-lg transition-colors hover:text-accent"
+                    >
+                        <FaEnvelope size={17} />
                     </a>
                 </div>
             </div>

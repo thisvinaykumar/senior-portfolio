@@ -35,6 +35,7 @@ export interface BpScenario {
   summary: string;
   route: Pt[]; // the packet's path, through node centres
   edges: string[]; // edges lit while this scenario runs
+  steps: string[]; // node ids in order — the phone layout lists these
 }
 
 export interface BpFlow {
@@ -52,7 +53,8 @@ export const blueprintIntro = {
   eyebrow: "Blueprint",
   heading: "Two systems, drawn from the code",
   lead: "Pick a scenario to send a packet through the system, or click any box to see how that step works.",
-  hint: "Swipe sideways to see the whole diagram.",
+  hint: "Swipe sideways to see the whole diagram, or tap a step below.",
+  stepsLabel: "Steps in this scenario",
   scenarioLabel: "Scenario",
   detailEmpty: "Click a box in the diagram to see how that step works.",
 };
@@ -104,22 +106,27 @@ const viaFerry: BpFlow = {
   ],
   scenarios: [
     { id: "happy", label: "Booked", tone: "green",
+      steps: ["search", "block", "claim", "debit", "arm", "book", "poll", "booked"],
       summary: "Claim, debit once, arm polling, book; the poller sees CONFIRMED and the booking settles with one email.",
       route: [[105, 80], [885, 80], [885, 250], [690, 250], [760, 250], [760, 335], [840, 335], [840, 420]],
       edges: ["e-search-block", "e-block-claim", "e-claim-debit", "e-debit-arm", "e-arm-book", "e-book-poll", "e-poll-booked"] },
     { id: "rejected", label: "Supplier rejects", tone: "amber",
+      steps: ["search", "block", "claim", "debit", "arm", "book", "poll", "reverse"],
       summary: "Via rejects the booking after the wallet was debited, so the debit is claimed and credited back automatically.",
       route: [[105, 80], [885, 80], [885, 250], [690, 250], [690, 420]],
       edges: ["e-search-block", "e-block-claim", "e-claim-debit", "e-debit-arm", "e-arm-book", "e-book-poll", "e-poll-reverse"] },
     { id: "unknown", label: "Unknown debit", tone: "rose",
+      steps: ["search", "block", "claim", "debit", "review"],
       summary: "The wallet call fails without a clear answer. Retrying could charge twice, so the booking is parked for a person.",
       route: [[105, 80], [690, 80], [690, 165], [250, 165], [250, 420]],
       edges: ["e-search-block", "e-block-claim", "e-claim-debit", "e-debit-review"] },
     { id: "expired", label: "Window expires", tone: "rose",
+      steps: ["search", "block", "claim", "debit", "arm", "book", "poll", "review"],
       summary: "Ten minutes pass with no final status. Nothing is refunded automatically — the booking goes UNRESOLVED and to review.",
       route: [[105, 80], [885, 80], [885, 250], [690, 250], [640, 250], [640, 335], [330, 335], [330, 420]],
       edges: ["e-search-block", "e-block-claim", "e-claim-debit", "e-debit-arm", "e-arm-book", "e-book-poll", "e-poll-review"] },
     { id: "restart", label: "Server restarts", tone: "cyan",
+      steps: ["restart", "poll", "booked"],
       summary: "The instance dies mid-poll. Another one adopts the lapsed lease and finishes polling — no booking is lost or repeated.",
       route: [[495, 250], [690, 250], [760, 250], [760, 335], [840, 335], [840, 420]],
       edges: ["e-restart-poll", "e-poll-booked"] },
@@ -165,18 +172,22 @@ const opsxLedger: BpFlow = {
   ],
   scenarios: [
     { id: "posted", label: "Posted once", tone: "green",
+      steps: ["req", "idem", "uow", "worker", "pg", "guards"],
       summary: "Claim the key, commit the write and its outbox row together, drain, post — and Postgres checks the entry balances.",
       route: [[105, 80], [830, 80], [830, 165], [690, 165], [690, 290]],
       edges: ["o-req-idem", "o-idem-uow", "o-uow-worker", "o-worker-pg", "o-pg-guards"] },
     { id: "double-click", label: "Double click", tone: "cyan",
+      steps: ["req", "idem", "retry"],
       summary: "The same key arrives twice. The second request gets a 409 while the first runs, or its stored result after.",
       route: [[105, 80], [300, 80], [300, 250]],
       edges: ["o-req-idem", "o-idem-retry"] },
     { id: "rollback", label: "Write fails", tone: "rose",
+      steps: ["req", "idem", "uow", "rollback"],
       summary: "The transaction rolls back, so no outbox row exists and nothing reaches the books. The key is freed.",
       route: [[105, 80], [495, 80], [495, 250]],
       edges: ["o-req-idem", "o-idem-uow", "o-uow-rollback"] },
     { id: "redelivery", label: "Redelivery", tone: "amber",
+      steps: ["worker", "pg", "dup"],
       summary: "The worker crashes after posting and sends the event again. The unique index turns the second post into a no-op.",
       route: [[690, 80], [920, 80], [920, 250]],
       edges: ["o-worker-pg", "o-pg-dup"] },

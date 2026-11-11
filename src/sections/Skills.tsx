@@ -1,43 +1,43 @@
-import { motion } from "framer-motion";
-import { fadeInUp, staggerContainer } from "../utils/motion";
-import { skillsSection } from "../content/site";
+import { Cloud, Compass, Database, FlaskConical, Monitor, Server, type LucideIcon } from "lucide-react";
 import Container from "../components/layout/Container";
-import Card from "../components/ui/Card";
 import SectionHeading from "../components/ui/SectionHeading";
+import Spotlight from "../components/motion/Spotlight";
+import { Reveal } from "../components/motion/Reveal";
 import { skills } from "../content/skills";
+import { chapters, skillsSection } from "../content/site";
 
+// One icon per group, in the order of src/content/skills.ts (falls back to Compass).
+const ICONS: LucideIcon[] = [Server, Monitor, Database, Cloud, FlaskConical, Compass];
 
 export default function Skills() {
     return (
         <section id="skills">
             <Container>
-                <SectionHeading title={skillsSection.heading} />
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={staggerContainer}
-                    className="grid md:grid-cols-3 gap-6 mt-8">
-                    {skills.map((group) => (
-                        <motion.div key={group.title} variants={fadeInUp}>
-                            <Card>
-                                {/* <motion.div key={group.title} className="bg-card p-6 rounded-xl"> */}
-                                <h3 className="font-semibold text-lg mb-4">{group.title}</h3>
-                                <div className="flex flex-wrap gap-2">
-                                    {group.items.map((skill) => (
-                                        <span
-                                            key={skill}
-                                            className="skill-pill px-3 py-1 rounded-full text-sm"
-                                        >
-                                            {skill}
+                <SectionHeading title={skillsSection.heading} eyebrow={chapters.skills} />
+                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                    {skills.map((group, i) => {
+                        const Icon = ICONS.at(i) ?? Compass;
+                        return (
+                            <Reveal key={group.title} delay={(i % 3) * 0.06}>
+                                <Spotlight className="h-full p-6">
+                                    <div className="flex items-center gap-3">
+                                        <span className="grid h-9 w-9 place-items-center rounded-xl border border-line text-accent">
+                                            <Icon size={18} aria-hidden="true" />
                                         </span>
-                                    ))}
-                                </div>
-                                {/* </motion.div> */}
-                            </Card>
-                        </motion.div>
-                    ))}
-                </motion.div>
+                                        <h3 className="text-lg font-semibold">{group.title}</h3>
+                                    </div>
+                                    <div className="mt-5 flex flex-wrap gap-2">
+                                        {group.items.map((skill) => (
+                                            <span key={skill} className="rounded-lg border border-line px-2.5 py-1 text-sm text-muted">
+                                                {skill}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </Spotlight>
+                            </Reveal>
+                        );
+                    })}
+                </div>
             </Container>
         </section>
     );

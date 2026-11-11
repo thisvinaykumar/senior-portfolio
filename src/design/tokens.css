@@ -1,0 +1,83 @@
+/*
+ * Design tokens. Dark is the default; `.light` on <html> switches theme.
+ * Colour meaning is fixed across the site:
+ *   accent (cyan)  = system flow, links, focus
+ *   amber          = money / payments
+ *   green          = settled / success
+ *   rose           = failure / needs a person
+ */
+:root {
+    --bg: #05070f;
+    --bg-elev: #0a0f1d;
+    --surface: rgba(13, 20, 38, 0.62);
+    --surface-solid: #0c1324;
+    --border: rgba(148, 163, 184, 0.14);
+    --border-strong: rgba(148, 163, 184, 0.3);
+    --text: #e8edf6;
+    --muted: #9aa8bd;
+    --faint: #64748b;
+    --accent: #22d3ee;
+    --accent-2: #818cf8;
+    --amber: #f59e0b;
+    --green: #22c55e;
+    --rose: #fb7185;
+    --glow: rgba(34, 211, 238, 0.28);
+    --glow-2: rgba(129, 140, 248, 0.22);
+    --grid: rgba(148, 163, 184, 0.06);
+    --shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 20px 50px -24px rgba(0, 0, 0, 0.7);
+
+    --radius: 16px;
+    --radius-sm: 10px;
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --dur: 450ms;
+
+    /* legacy aliases (kept so nothing old breaks) */
+    --card: var(--surface);
+    --primary: var(--accent);
+    --text-header: var(--muted);
+
+    /* blueprint diagram */
+    --bp-surface: rgba(6, 10, 22, 0.75);
+    --bp-grid: rgba(148, 163, 184, 0.07);
+    --bp-line: #3b4a63;
+    --bp-node: #0b1428;
+    --bp-node-border: #2a3852;
+    --bp-text: var(--text);
+    --bp-muted: var(--muted);
+    --bp-cyan: var(--accent);
+    --bp-amber: var(--amber);
+    --bp-green: var(--green);
+    --bp-rose: var(--rose);
+    --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+    color-scheme: dark;
+}
+
+.light {
+    --bg: #f6f8fb;
+    --bg-elev: #ffffff;
+    --surface: rgba(255, 255, 255, 0.78);
+    --surface-solid: #ffffff;
+    --border: rgba(15, 23, 42, 0.1);
+    --border-strong: rgba(15, 23, 42, 0.22);
+    --text: #0b1220;
+    --muted: #475569;
+    --faint: #64748b;
+    --accent: #0e7490;
+    --accent-2: #4f46e5;
+    --amber: #b45309;
+    --green: #15803d;
+    --rose: #be123c;
+    --glow: rgba(14, 116, 144, 0.16);
+    --glow-2: rgba(79, 70, 229, 0.12);
+    --grid: rgba(15, 23, 42, 0.05);
+    --shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 18px 40px -28px rgba(15, 23, 42, 0.35);
+
+    --bp-surface: #f1f5f9;
+    --bp-grid: rgba(15, 23, 42, 0.06);
+    --bp-line: #94a3b8;
+    --bp-node: #ffffff;
+    --bp-node-border: #cbd5e1;
+
+    color-scheme: light;
+}

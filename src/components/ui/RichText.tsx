@@ -20,7 +20,7 @@ export default function RichText({ runs }: { runs: Paragraph }) {
                     );
                 }
                 return (
-                    <span key={i} className="text-white font-semibold">
+                    <span key={i} className="font-semibold text-ink">
                         {run.text}
                     </span>
                 );

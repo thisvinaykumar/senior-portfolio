@@ -1,26 +1,31 @@
-// /** @type {import('tailwindcss').Config} */
-// export default {
-//   content: [
-//     "./index.html",
-//     "./src/**/*.{js,ts,jsx,tsx}",
-//   ],
-//   theme: {
-//     extend: {},
-//   },
-//   plugins: [],
-// }
-
-
 /** @type {import('tailwindcss').Config} */
+// Colours come from CSS variables in src/design/tokens.css, so one class works in both themes.
 export default {
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        background: "#020617", // Custom background color
-        card: "#020617cc",     // Optional: for cards
-        primary: "#0ea5e9",    // Optional: for links/buttons
+        bg: "var(--bg)",
+        elev: "var(--bg-elev)",
+        surface: "var(--surface)",
+        line: "var(--border)",
+        "line-strong": "var(--border-strong)",
+        ink: "var(--text)",
+        muted: "var(--muted)",
+        faint: "var(--faint)",
+        accent: "var(--accent)",
+        "accent-2": "var(--accent-2)",
+        amber: "var(--amber)",
+        green: "var(--green)",
+        rose: "var(--rose)",
+        primary: "var(--accent)",
       },
+      fontFamily: {
+        sans: ['"Inter Variable"', "Inter", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+        mono: ['"JetBrains Mono Variable"', "ui-monospace", "SFMono-Regular", "Menlo", "Consolas", "monospace"],
+      },
+      maxWidth: { page: "76rem" },
+      transitionTimingFunction: { out: "cubic-bezier(0.22, 1, 0.36, 1)" },
     },
   },
   plugins: [],

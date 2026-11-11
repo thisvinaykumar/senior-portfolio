@@ -12,18 +12,21 @@ export const mediumUrl = "https://medium.com/@javaScriptwithvinay";
 
 export const nav = {
   brand: "Vinay Kumar",
+  // Same order as the page (the storyboard runs top to bottom in this order).
   items: [
     { label: "Home", id: "hero" },
     { label: "Summary", id: "summary" },
-    { label: "Skills", id: "skills" },
+    { label: "Architecture", id: "architecture" },
     { label: "Experience", id: "experience" },
     { label: "Projects", id: "projects" },
-    { label: "Architecture", id: "architecture" },
+    { label: "Skills", id: "skills" },
     { label: "Leadership", id: "leadership" },
     { label: "Blog", id: "blog" },
     { label: "Ecosystem", id: "ecosystem" },
     { label: "Contact", id: "contact" },
   ],
+  menu: "Menu",
+  search: "Search",
   lightMode: "Light Mode",
   darkMode: "Dark Mode",
   toggleTheme: "Toggle theme",
@@ -41,6 +44,70 @@ export const hero = {
   ctaContact: { label: "Contact", aria: "Contact me", href: "#contact" },
   ctaResume: { label: "Download Resume", aria: "Download Vinay Kumar resume PDF" },
   ctaGithub: { label: "GitHub", aria: "Open GitHub in new tab" },
+  status: "Open to senior engineer & architect roles",
+  paletteHint: { before: "Press", after: "to jump anywhere" },
+  terminal: {
+    title: "~/vinay — zsh",
+    lines: [
+      { kind: "cmd", text: "whoami" },
+      { kind: "out", text: "vinay-kumar · senior software engineer & system architect" },
+      { kind: "cmd", text: "cat stack.txt" },
+      { kind: "out", text: "node · nestjs · angular · typescript · mongodb · postgres · redis · aws" },
+      { kind: "cmd", text: "git log --author=vinay --oneline | wc -l   # EasyRes, 24 repos" },
+      { kind: "out", text: "~3,000" },
+      { kind: "cmd", text: "./book-ferry --supplier=via --scenario=timeout" },
+      { kind: "ok", text: "✓ claim → debit once → poll → settled · no double charge" },
+    ] as { kind: "cmd" | "out" | "ok"; text: string }[],
+  },
+  metricsLabel: "By the numbers",
+  metrics: [
+    { value: 5, suffix: "+", label: "years shipping production software" },
+    { value: 3000, prefix: "~", label: "commits across 24 EasyRes repositories" },
+    { value: 480, suffix: "+", label: "pull requests reviewed and merged" },
+    { value: 20, suffix: "+", label: "Node.js microservices in the travel platform" },
+    { value: 760, suffix: "+", label: "OpsX commits, designed and built solo" },
+    { value: 138, label: "checks in the offline money-safety test harness" },
+  ] as { value: number; prefix?: string; suffix?: string; label: string }[],
+  scrollCue: "Scroll",
+};
+
+/** Section eyebrows: the storyboard's chapter numbers. */
+export const chapters: Record<string, string> = {
+  summary: "01 · Profile",
+  architecture: "02 · Systems",
+  experience: "03 · Career",
+  projects: "04 · Work",
+  skills: "05 · Stack",
+  leadership: "06 · People",
+  blog: "07 · Writing",
+  ecosystem: "08 · Elsewhere",
+  contact: "09 · Contact",
+};
+
+export const summaryLabels = ["In one line", "Stack & scope", "At EasyRes", "What I care about", "Writing"];
+
+export const palette = {
+  title: "Command palette",
+  placeholder: "Type a command or search…",
+  empty: "No matches.",
+  groups: { navigate: "Navigate", actions: "Actions", profiles: "Profiles" },
+  goTo: "Go to",
+  downloadResume: "Download resume (PDF)",
+  emailMe: "Email Vinay",
+  copyEmail: "Copy email address",
+  copied: "Email address copied",
+  call: "Call",
+  toggleTheme: "Switch light / dark theme",
+  hints: { navigate: "navigate", open: "open", close: "close" },
+};
+
+export const dock = {
+  label: "Quick actions",
+  resume: "Download resume",
+  email: "Email",
+  linkedin: "LinkedIn",
+  github: "GitHub",
+  palette: "Open command palette",
 };
 
 export const summary = {

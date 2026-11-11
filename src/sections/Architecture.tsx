@@ -1,30 +1,27 @@
-import { motion } from "framer-motion";
-import { fadeInUp } from "../utils/motion";
 import Container from "../components/layout/Container";
 import SectionHeading from "../components/ui/SectionHeading";
 import RichText from "../components/ui/RichText";
 import Blueprint from "../components/blueprint/Blueprint";
-import { architecture } from "../content/site";
+import { Reveal } from "../components/motion/Reveal";
+import { architecture, chapters } from "../content/site";
 
 export default function Architecture() {
     return (
         <section id="architecture">
             <Container>
-                <SectionHeading title={architecture.heading} />
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    variants={fadeInUp}
-                    className="mt-6 max-w-4xl text-muted space-y-4"
-                >
-                    {architecture.paragraphs.map((p, i) => (
-                        <p key={i}>
-                            <RichText runs={p} />
-                        </p>
-                    ))}
-                </motion.div>
+                <SectionHeading title={architecture.heading} eyebrow={chapters.architecture} />
+
                 <Blueprint />
+
+                <div className="mt-10 grid gap-4 md:grid-cols-2">
+                    {architecture.paragraphs.map((p, i) => (
+                        <Reveal key={i} delay={i * 0.05}>
+                            <div className="h-full border-l-2 border-[color-mix(in_srgb,var(--accent)_45%,transparent)] py-1 pl-5 leading-relaxed text-muted">
+                                <RichText runs={p} />
+                            </div>
+                        </Reveal>
+                    ))}
+                </div>
             </Container>
         </section>
     );

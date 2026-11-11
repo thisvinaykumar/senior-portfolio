@@ -234,6 +234,27 @@ export default function Blueprint() {
                         </svg>
                     </div>
 
+                    {/* Phone layout: the scenario as a tappable list of steps */}
+                    <div className="px-4 pb-4 lg:hidden">
+                        <p className="bp-mono mb-2 text-xs uppercase tracking-wider text-faint">{blueprintIntro.stepsLabel}</p>
+                        <ol className="space-y-1.5">
+                            {scenario.steps.map((id, i) => {
+                                const n = flow.nodes.find((x) => x.id === id);
+                                if (!n) return null;
+                                return (
+                                    <li key={id}>
+                                        <button type="button" className="bp-step" aria-pressed={id === selectedId} onClick={() => setSelectedId(id)}>
+                                            <span className="bp-mono text-xs text-faint">{String(i + 1).padStart(2, "0")}</span>
+                                            <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: KIND_ACCENT[n.kind] }} aria-hidden="true" />
+                                            <span className="shrink-0 whitespace-nowrap font-medium text-ink">{n.title}</span>
+                                            <span className="bp-mono ml-auto min-w-0 truncate text-xs text-muted">{n.sub}</span>
+                                        </button>
+                                    </li>
+                                );
+                            })}
+                        </ol>
+                    </div>
+
                     {/* Detail panel */}
                     <aside className="bp-panel" aria-live="polite">
                         {selected ? (
