@@ -68,7 +68,7 @@ export default function Blueprint() {
 
     return (
         <div className="bp mt-10">
-            <p className="bp-eyebrow">{blueprintIntro.eyebrow}</p>
+            <p className="eyebrow">{blueprintIntro.eyebrow}</p>
             <h3 className="mt-1 text-2xl md:text-3xl">{blueprintIntro.heading}</h3>
             <p className="mt-2 text-muted max-w-3xl">{blueprintIntro.lead}</p>
 
@@ -82,6 +82,7 @@ export default function Blueprint() {
                         onClick={() => pickFlow(f.id)}
                         className={clsx("bp-tab", f.id === flowId && "bp-tab-active")}
                     >
+                        <span className="bp-tab-org">{f.org}</span>{" "}
                         {f.tab}
                     </button>
                 ))}
@@ -115,7 +116,7 @@ export default function Blueprint() {
                     </p>
                 </div>
 
-                <div className="grid lg:grid-cols-[minmax(0,1fr)_300px] gap-0">
+                <div className="grid grid-cols-[minmax(0,1fr)] gap-0 lg:grid-cols-[minmax(0,1fr)_300px]">
                     {/* Diagram */}
                     <div className="bp-scroll" tabIndex={-1}>
                         <svg
@@ -275,6 +276,30 @@ export default function Blueprint() {
                     </aside>
                 </div>
                 <p className="bp-hint px-4 pb-3 text-xs text-muted lg:hidden">{blueprintIntro.hint}</p>
+            </div>
+
+            {/* Trade-offs: what was chosen, what was turned down, what it cost */}
+            <div className="mt-6">
+                <p className="eyebrow">{blueprintIntro.tradeoffsLabel}</p>
+                <p className="mt-1 text-sm text-muted">{blueprintIntro.tradeoffsLead}</p>
+                <ul className="mt-4 grid gap-3 md:grid-cols-3">
+                    {flow.tradeoffs.map((t) => (
+                        <li key={t.chose} className="bp-trade">
+                            <p className="text-sm">
+                                <span className="bp-mono text-xs uppercase tracking-wider text-accent">{blueprintIntro.choseLabel} </span>
+                                <span className="font-medium text-ink">{t.chose}</span>
+                            </p>
+                            <p className="mt-1 text-sm text-faint">
+                                {blueprintIntro.overLabel} {t.over}
+                            </p>
+                            <p className="mb-3 mt-3 text-sm text-muted">{t.why}</p>
+                            <p className="bp-trade-cost text-sm">
+                                <span className="bp-mono text-xs uppercase tracking-wider">{blueprintIntro.costLabel} </span>
+                                {t.cost}
+                            </p>
+                        </li>
+                    ))}
+                </ul>
             </div>
         </div>
     );

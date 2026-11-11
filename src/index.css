@@ -216,6 +216,15 @@
     transition: color 0.2s, border-color 0.2s, background-color 0.2s;
 }
 .bp-tab:hover { color: var(--text); }
+.bp-tab-org {
+    margin-right: 0.2rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--faint);
+}
+.bp-tab-active .bp-tab-org { color: var(--accent); }
 .bp-tab-active {
     color: var(--text);
     border-color: var(--accent);
@@ -273,3 +282,18 @@
     font-size: 0.88rem;
 }
 .bp-step[aria-pressed="true"] { border-color: var(--accent); }
+
+.bp-trade {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1.1rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--bp-surface);
+}
+.bp-trade-cost {
+    margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px dashed var(--border);
+    color: var(--amber);
+}
