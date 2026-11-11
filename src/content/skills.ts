@@ -1,7 +1,7 @@
 export const skills = [
   {
     title: "Backend & Architecture",
-    items: ["Node.js", "NestJS", "Express", "JavaScript (ES6+)", "TypeScript", "REST & SOAP APIs", "Microservices", "Multi-Tenant SaaS", "RBAC", "Event-driven (outbox, queues)", "Idempotent payments"],
+    items: ["Node.js", "NestJS", "Express", "JavaScript (ES6+)", "TypeScript", "REST & SOAP APIs", "Microservices", "Multi-Tenant SaaS", "RBAC", "Event-driven (outbox, queues)", "Message queues (BullMQ, Postgres outbox)", "JWT auth & MFA", "Rate limiting & security headers", "Idempotent payments"],
   },
   {
     title: "Frontend & Mobile",
@@ -9,15 +9,15 @@ export const skills = [
   },
   {
     title: "Data",
-    items: ["MongoDB / Mongoose", "PostgreSQL", "Redis", "BullMQ", "SQLite (offline sync)"],
+    items: ["MongoDB / Mongoose", "PostgreSQL", "Redis", "BullMQ", "SQLite (offline sync)", "Redis caching (version-stamped invalidation)"],
   },
   {
     title: "Cloud & DevOps",
-    items: ["AWS (EC2, S3, SES)", "Docker", "nginx", "Linux", "Nx monorepo", "Zero-downtime rolling deploys", "Cron jobs"],
+    items: ["AWS (EC2, S3, SES)", "Docker", "nginx", "Linux", "Nx monorepo", "CI/CD (GitHub Actions)", "Zero-downtime rolling deploys", "Cron jobs", "Agile delivery (Jira)"],
   },
   {
     title: "Testing & AI-assisted engineering",
-    items: ["Offline test harnesses (in-memory DB, mocked suppliers)", "Integration & regression suites", "Claude Code", "GitHub Copilot"],
+    items: ["Jest unit testing", "Offline test harnesses (in-memory DB, mocked suppliers)", "Integration & regression suites", "Claude Code", "GitHub Copilot"],
   },
   {
     title: "Domain",

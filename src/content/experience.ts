@@ -19,7 +19,10 @@ export const experience: Experience[] = [
       "Architected edge-first attendance: offline SQLite queue with batch sync and on-device face verification on kiosk tablets.",
       "Designed tenant isolation (a shared or dedicated database per tenant, chosen by plan), hierarchical RBAC entitlements and maker-checker approval workflows.",
       "Automated statutory payroll (PF, ESI, TDS, professional tax, full & final) posted to a double-entry ledger in PostgreSQL.",
-      "Run it in production on AWS EC2: rolling restarts across two API instances, BullMQ workers on Redis, nginx."
+      "Run it in production on AWS EC2: rolling restarts across two API instances, BullMQ workers on Redis, nginx.",
+      "Security: RS256 JWT access tokens with MFA, per-route rate limiting (sign-in capped at 5 attempts a minute), helmet and an enforced Content-Security-Policy.",
+      "Caching for scale: Redis caching with version-stamped invalidation on the attendance check-in path and RBAC permissions — a configuration change rotates one tenant's keys at once, with no stale window and no global flush.",
+      "CI/CD: GitHub Actions runs lint, Jest unit tests (700+ test files) and the build on every pull request, limited to affected projects with Nx; releases ship as scripted zero-downtime rolling deploys."
     ]
   },
   {
@@ -37,7 +40,8 @@ export const experience: Experience[] = [
       "In-house products with no third-party supplier: built and run visa processing and holiday/tour packages end to end around client needs — visa modules on the visa service I set up, and packages with tenant-managed suppliers, activities, prices and currencies (140+ backend commits).",
       "Airport shuttles and insurance: Jayride integration shaped by client use cases (booking list, details, wallet payment, redirects); created the travel-insurance microservice end to end (quotes, policies, gateway and wallet booking).",
       "Payments, pricing and flights: integrated Xendit end to end (hosted sessions, webhooks, per-tenant config) and worked on the PayMongo checkout; email-OTP two-step login; grade codes plus agency markups and discounts across products, multi-currency precision, agent and agency management; Angular flight search and booking over Travelport, Sabre and Atlas fares.",
-      "Engineering practice: merged 480+ pull requests, including teammates' and release/hot-fix branches; mentor to junior developers; Claude Code and GitHub Copilot for boilerplate, test scaffolding and query tuning, with every change reviewed and tested."
+      "Engineering practice: merged 480+ pull requests, including teammates' and release/hot-fix branches; mentor to junior developers; Claude Code and GitHub Copilot for boilerplate, test scaffolding and query tuning, with every change reviewed and tested.",
+      "Agile delivery with Jira: work tracked as Jira tickets on feature branches, shipped through versioned release branches and hot-fix branches."
     ]
   },
   {
@@ -107,5 +111,5 @@ export const highlightTerms: string[] = [
   "Travelport", "Sabre", "Atlas", "RateHawk", "GRN Connect", "Dida", "Bedsonline", "Via Hotels", "Via.com",
   "2GO", "Barkota", "Starlite", "Jayride", "Xendit", "PayMongo", "AWS S3", "AWS EC2", "Node.js", "NestJS",
   "Angular", "React Native", "BullMQ", "Redis", "Socket.IO", "PostgreSQL", "SQLite", "nginx", "Nx", "SCSS",
-  "PHP", "MySQL", "REST APIs", "React.js", "Bootstrap", "SASS", "Claude Code", "GitHub Copilot", "UPI",
+  "PHP", "MySQL", "REST APIs", "JWT", "GitHub Actions", "Jest", "Jira", "React.js", "Bootstrap", "SASS", "Claude Code", "GitHub Copilot", "UPI",
 ];
