@@ -9,6 +9,20 @@ export interface Experience {
 // Client / tenant brand names are deliberately left out; public supplier names are fine.
 export const experience: Experience[] = [
   {
+    // Newest role first (reverse chronological by start date); runs alongside EasyRes.
+    company: "OpsX (opsx.in) — Opsx Apex Private Limited, Gaya",
+    title: "Principal System Architect & Product Creator",
+    duration: "Jan 2026 – Present",
+    points: [
+      "Created OpsX, a multi-tenant industrial ERP and workforce OS: attendance, payroll, field staff, factory kiosk, procurement and stock — 760+ commits as sole engineer.",
+      "Nx monorepo of 7 apps (NestJS API, BullMQ worker, Socket.IO realtime, Angular ERP portal, control center, React Native field and kiosk apps) over 50+ backend domains.",
+      "Architected edge-first attendance: offline SQLite queue with batch sync and on-device face verification on kiosk tablets.",
+      "Designed tenant isolation (a shared or dedicated database per tenant, chosen by plan), hierarchical RBAC entitlements and maker-checker approval workflows.",
+      "Automated statutory payroll (PF, ESI, TDS, professional tax, full & final) posted to a double-entry ledger in PostgreSQL.",
+      "Run it in production on AWS EC2: rolling restarts across two API instances, BullMQ workers on Redis, nginx."
+    ]
+  },
+  {
     company: "EasyRes Travel Technologies Pvt. Ltd., Delhi",
     title: "Software Development Engineer II (Full Stack)",
     duration: "Jul 2024 – Present",
@@ -42,25 +56,13 @@ export const experience: Experience[] = [
     ]
   },
   {
-    company: "OpsX (opsx.in) — Opsx Apex Private Limited, Gaya",
-    title: "Principal System Architect & Product Creator",
-    duration: "Jun 2026 – Present",
-    points: [
-      "Created OpsX, a multi-tenant industrial ERP and workforce OS: attendance, payroll, field staff, factory kiosk, procurement and stock — 760+ commits as sole engineer.",
-      "Nx monorepo of 7 apps (NestJS API, BullMQ worker, Socket.IO realtime, Angular ERP portal, control center, React Native field and kiosk apps) over 50+ backend domains.",
-      "Architected edge-first attendance: offline SQLite queue with batch sync and on-device face verification on kiosk tablets.",
-      "Designed tenant isolation (a shared or dedicated database per tenant, chosen by plan), hierarchical RBAC entitlements and maker-checker approval workflows.",
-      "Automated statutory payroll (PF, ESI, TDS, professional tax, full & final) posted to a double-entry ledger in PostgreSQL.",
-      "Run it in production on AWS EC2: rolling restarts across two API instances, BullMQ workers on Redis, nginx."
-    ]
-  },
-  {
     // Title and dates as on the VKREATE relieving letter (10 Jun 2021 – 5 Jun 2022).
     company: "VKREATE Software Technologies Pvt. Ltd., Jaipur",
     title: "Junior Front-End Developer",
     duration: "Jun 2021 – Jun 2022",
     points: [
       "Developed and maintained production CRM dashboards using Angular.",
+      "Built responsive web pages and UI components with React.js, JavaScript, HTML, CSS, Bootstrap and SASS.",
       "Integrated REST APIs for real-time data visualization and reporting.",
       "Improved UI performance and usability for business users."
     ]
@@ -77,12 +79,22 @@ export const experience: Experience[] = [
   {
     company: "Arden Telecom Pvt. Ltd., Jaipur",
     title: "Software Engineer Intern",
-    duration: "Jun 2019 – Oct 2019",
+    duration: "Jun 2019 – Aug 2019",
     points: [
       "Assisted in development of internal tools using PHP, HTML, and CSS.",
       "Worked on dashboard modules and API integrations."
     ]
   }
+];
+
+export interface Education {
+  degree: string;
+  school: string;
+  year: string;
+}
+
+export const education: Education[] = [
+  { degree: "Bachelor of Technology (B.Tech), Computer Science Engineering", school: "NIMS University, Jaipur", year: "2021" }
 ];
 
 /**
@@ -93,5 +105,5 @@ export const highlightTerms: string[] = [
   "Travelport", "Sabre", "Atlas", "RateHawk", "GRN Connect", "Dida", "Bedsonline", "Via Hotels", "Via.com",
   "2GO", "Barkota", "Starlite", "Jayride", "Xendit", "PayMongo", "AWS S3", "AWS EC2", "Node.js", "NestJS",
   "Angular", "React Native", "BullMQ", "Redis", "Socket.IO", "PostgreSQL", "SQLite", "nginx", "Nx", "SCSS",
-  "PHP", "REST APIs", "Claude Code", "GitHub Copilot", "UPI",
+  "PHP", "REST APIs", "React.js", "Bootstrap", "SASS", "Claude Code", "GitHub Copilot", "UPI",
 ];

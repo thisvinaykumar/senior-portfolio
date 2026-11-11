@@ -1,14 +1,14 @@
 import { useRef } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import {
-    BedDouble, Boxes, Bus, Calculator, CircleDot, CreditCard, GitPullRequest, Handshake, LayoutDashboard, Layers,
+    BedDouble, Boxes, GraduationCap, Bus, Calculator, CircleDot, CreditCard, GitPullRequest, Handshake, LayoutDashboard, Layers,
     Package, Palette, Plug, Repeat, Rocket, ScanFace, Server, ShieldCheck, Ship, Stamp, Ticket, Wallet,
     type LucideIcon,
 } from "lucide-react";
 import Container from "../components/layout/Container";
 import SectionHeading from "../components/ui/SectionHeading";
 import { Reveal } from "../components/motion/Reveal";
-import { experience, type Experience as Role } from "../content/experience";
+import { education, experience, type Experience as Role } from "../content/experience";
 import { chapters, experienceSection } from "../content/site";
 import { toHighlight, type Highlight } from "../utils/highlights";
 
@@ -49,6 +49,27 @@ export default function Experience() {
                         <RoleItem key={role.company + role.title} role={role} first={i === 0} />
                     ))}
                 </ol>
+
+                <Reveal className="mt-16 md:mt-24">
+                    <h3 className="eyebrow mb-4">{experienceSection.education}</h3>
+                    <ul className="grid gap-4">
+                        {education.map((e) => (
+                            <li key={e.degree} className="glass flex items-start gap-4 rounded-2xl p-5 md:p-6">
+                                <span className="exp-icon" aria-hidden="true">
+                                    <GraduationCap size={18} />
+                                </span>
+                                <div className="min-w-0">
+                                    <p className="font-semibold text-ink">{e.degree}</p>
+                                    <p className="mt-1 text-muted">
+                                        {e.school}
+                                        <span className="sr-only"> · </span>
+                                        <span className="ml-3 font-mono text-sm text-accent">{e.year}</span>
+                                    </p>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </Reveal>
             </Container>
         </section>
     );

@@ -127,7 +127,7 @@ export const summary = {
 };
 
 export const skillsSection = { heading: "Technical Expertise" };
-export const experienceSection = { heading: "Professional Experience", highlights: "highlights", highlight: "highlight" };
+export const experienceSection = { heading: "Professional Experience", highlights: "highlights", highlight: "highlight", education: "Education" };
 export const projectsSection = { heading: "Flagship Projects", github: "GitHub", liveDemo: "Live Demo" };
 export const ecosystemSection = { heading: "Ecosystem" };
 
