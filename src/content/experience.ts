@@ -55,13 +55,23 @@ export const experience: Experience[] = [
     ]
   },
   {
+    // Title and dates as on the VKREATE relieving letter (10 Jun 2021 – 5 Jun 2022).
     company: "VKREATE Software Technologies Pvt. Ltd., Jaipur",
-    title: "Frontend Developer",
-    duration: "Jan 2021 – May 2022",
+    title: "Junior Front-End Developer",
+    duration: "Jun 2021 – Jun 2022",
     points: [
       "Developed and maintained production CRM dashboards using Angular.",
       "Integrated REST APIs for real-time data visualization and reporting.",
       "Improved UI performance and usability for business users."
+    ]
+  },
+  {
+    // As on the VKREATE internship certificate (2 Apr 2020 – 21 Dec 2020).
+    company: "VKREATE Software Technologies Pvt. Ltd., Jaipur",
+    title: "Web Development Intern (JavaScript)",
+    duration: "Apr 2020 – Dec 2020",
+    points: [
+      "Completed a nine-month internship in web development with JavaScript, working as part of the development team."
     ]
   },
   {

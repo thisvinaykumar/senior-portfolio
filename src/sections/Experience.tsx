@@ -92,7 +92,7 @@ function RoleItem({ role, first }: { role: Role; first: boolean }) {
                         <motion.div className="h-full origin-left rounded-full bg-accent lg:origin-right" style={{ scaleX: fill }} />
                     </div>
                     <span className="shrink-0 font-mono text-[0.7rem] text-faint">
-                        {role.points.length} {experienceSection.highlights}
+                        {role.points.length} {role.points.length === 1 ? experienceSection.highlight : experienceSection.highlights}
                     </span>
                 </div>
             </div>
