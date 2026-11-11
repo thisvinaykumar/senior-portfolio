@@ -77,12 +77,14 @@ export const experience: Experience[] = [
     ]
   },
   {
-    company: "Arden Telecom Pvt. Ltd., Jaipur",
-    title: "Software Engineer Intern",
-    duration: "Jun 2019 – Aug 2019",
+    // As on the OYS InfoTel internship certificate (ref. OYS/NIMSU01/18-19): 15 Jun 2019 – 31 Jul 2019.
+    // The supervisor's name is on the certificate but deliberately not published.
+    company: "OYS InfoTel Pvt. Ltd., Jaipur",
+    title: "Web Development Intern (PHP/MySQL)",
+    duration: "Jun 2019 – Jul 2019",
     points: [
-      "Assisted in development of internal tools using PHP, HTML, and CSS.",
-      "Worked on dashboard modules and API integrations."
+      "Worked on Educationwork.com, doing web development with PHP and MySQL.",
+      "Trained under a senior web developer and worked as part of the development team."
     ]
   }
 ];
@@ -105,5 +107,5 @@ export const highlightTerms: string[] = [
   "Travelport", "Sabre", "Atlas", "RateHawk", "GRN Connect", "Dida", "Bedsonline", "Via Hotels", "Via.com",
   "2GO", "Barkota", "Starlite", "Jayride", "Xendit", "PayMongo", "AWS S3", "AWS EC2", "Node.js", "NestJS",
   "Angular", "React Native", "BullMQ", "Redis", "Socket.IO", "PostgreSQL", "SQLite", "nginx", "Nx", "SCSS",
-  "PHP", "REST APIs", "React.js", "Bootstrap", "SASS", "Claude Code", "GitHub Copilot", "UPI",
+  "PHP", "MySQL", "REST APIs", "React.js", "Bootstrap", "SASS", "Claude Code", "GitHub Copilot", "UPI",
 ];
