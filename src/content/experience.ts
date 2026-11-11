@@ -74,3 +74,14 @@ export const experience: Experience[] = [
     ]
   }
 ];
+
+/**
+ * Suppliers and tools that get a scan-friendly pill under the bullet that names them.
+ * The pills repeat words already in the bullet; the bullet text itself is unchanged.
+ */
+export const highlightTerms: string[] = [
+  "Travelport", "Sabre", "Atlas", "RateHawk", "GRN Connect", "Dida", "Bedsonline", "Via Hotels", "Via.com",
+  "2GO", "Barkota", "Starlite", "Jayride", "Xendit", "PayMongo", "AWS S3", "AWS EC2", "Node.js", "NestJS",
+  "Angular", "React Native", "BullMQ", "Redis", "Socket.IO", "PostgreSQL", "SQLite", "nginx", "Nx", "SCSS",
+  "PHP", "REST APIs", "Claude Code", "GitHub Copilot", "UPI",
+];

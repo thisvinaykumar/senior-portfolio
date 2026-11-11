@@ -108,6 +108,7 @@ export const dock = {
   linkedin: "LinkedIn",
   github: "GitHub",
   palette: "Open command palette",
+  expand: "Show quick actions",
 };
 
 export const summary = {
@@ -126,7 +127,7 @@ export const summary = {
 };
 
 export const skillsSection = { heading: "Technical Expertise" };
-export const experienceSection = { heading: "Professional Experience" };
+export const experienceSection = { heading: "Professional Experience", highlights: "highlights" };
 export const projectsSection = { heading: "Flagship Projects", github: "GitHub", liveDemo: "Live Demo" };
 export const ecosystemSection = { heading: "Ecosystem" };
 

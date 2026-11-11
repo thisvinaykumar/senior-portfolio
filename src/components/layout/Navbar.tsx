@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { Menu, Moon, Search, Sun, X } from "lucide-react";
 import clsx from "clsx";
@@ -16,8 +16,32 @@ export default function Navbar() {
     const { scrollYProgress } = useScroll();
     const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 30, mass: 0.3 });
 
+    // Keep the address bar on the section being read (replaceState: no history entries, no jump).
+    const hashReady = useRef(false);
+    useEffect(() => {
+        if (!hashReady.current) {
+            hashReady.current = true;
+            return;
+        }
+        const want = active === "hero" ? "" : `#${active}`;
+        if (window.location.hash !== want) {
+            history.replaceState(null, "", want || window.location.pathname + window.location.search);
+        }
+    }, [active]);
+
     // Highlight the section currently in view.
     useEffect(() => {
+        // Content renders after load, so the browser could not jump to a shared #section link itself.
+        const linked = decodeURIComponent(window.location.hash.slice(1));
+        if (linked) {
+            const land = () => document.getElementById(linked)?.scrollIntoView();
+            land();
+            // Web fonts change line heights above the target; land again once they are in.
+            document.fonts?.ready.then(() => {
+                if (window.location.hash === `#${linked}`) land();
+            });
+        }
+
         const sections = navItems.map((i) => document.getElementById(i.id)).filter(Boolean) as HTMLElement[];
         const io = new IntersectionObserver(
             (entries) => {
