@@ -1,4 +1,4 @@
-import { useMemo, useState, type KeyboardEvent } from "react";
+import { useState, type KeyboardEvent } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import clsx from "clsx";
 import { flows, blueprintIntro, type BpFlow, type BpNode, type BpScenario, type Pt } from "../../content/blueprint";
@@ -44,11 +44,10 @@ export default function Blueprint() {
     const [selectedId, setSelectedId] = useState<string | null>(null);
     const selected = flow.nodes.find((n) => n.id === selectedId) ?? null;
 
-    const litEdges = useMemo(() => new Set(scenario.edges), [scenario]);
-    const litNodes = useMemo(() => {
-        const pts: Pt[] = [...scenario.route, ...flow.edges.filter((e) => litEdges.has(e.id)).flatMap((e) => e.points)];
-        return new Set(flow.nodes.filter((n) => pts.some((p) => touches(n, p))).map((n) => n.id));
-    }, [flow, scenario, litEdges]);
+    // Cheap (a dozen nodes); the React Compiler memoises this for us.
+    const litEdges = new Set(scenario.edges);
+    const litPoints: Pt[] = [...scenario.route, ...flow.edges.filter((e) => litEdges.has(e.id)).flatMap((e) => e.points)];
+    const litNodes = new Set(flow.nodes.filter((n) => litPoints.some((p) => touches(n, p))).map((n) => n.id));
 
     const route = toPath(scenario.route);
     const dur = Math.max(2.2, pathLength(scenario.route) / SPEED);
