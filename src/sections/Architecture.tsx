@@ -3,6 +3,7 @@ import { fadeInUp } from "../utils/motion";
 import Container from "../components/layout/Container";
 import SectionHeading from "../components/ui/SectionHeading";
 import RichText from "../components/ui/RichText";
+import Blueprint from "../components/blueprint/Blueprint";
 import { architecture } from "../content/site";
 
 export default function Architecture() {
@@ -23,6 +24,7 @@ export default function Architecture() {
                         </p>
                     ))}
                 </motion.div>
+                <Blueprint />
             </Container>
         </section>
     );
