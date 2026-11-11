@@ -3,19 +3,9 @@ import { Link } from "react-scroll"; // smooth scroll
 import { HiMenu, HiX } from "react-icons/hi";
 import { FaSun, FaMoon } from "react-icons/fa";
 import clsx from "clsx";
+import { nav } from "../../content/site";
 
-const navItems = [
-    { label: "Home", id: "hero" },
-    { label: "Summary", id: "summary" },
-    { label: "Skills", id: "skills" },
-    { label: "Experience", id: "experience" },
-    { label: "Projects", id: "projects" },
-    { label: "Architecture", id: "architecture" },
-    { label: "Leadership", id: "leadership" },
-    { label: "Blog", id: "blog" },
-    { label: "Ecosystem", id: "ecosystem" },
-    { label: "Contact", id: "contact" },
-];
+const navItems = nav.items;
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
@@ -31,13 +21,13 @@ export default function Navbar() {
         const root = document.documentElement;
         if (theme === 'light') root.classList.add('light');
         else root.classList.remove('light');
-        try { localStorage.setItem('theme', theme); } catch {   }
+        try { localStorage.setItem('theme', theme); } catch { /* storage blocked (private mode) — theme still applies */ }
     }, [theme]);
 
     return (
         <nav className="fixed w-full bg-background/80 backdrop-blur-md z-50 border-b border-slate-800">
             <div className="max-w-7xl mx-auto px-6 md:px-16 flex justify-between items-center h-16">
-                <div className="text-2xl font-bold text-primary">Vinay Kumar</div>
+                <div className="text-2xl font-bold text-primary">{nav.brand}</div>
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex items-center gap-6">
@@ -58,7 +48,7 @@ export default function Navbar() {
 
                     {/* Theme toggle (desktop) */}
                     <button
-                        aria-label="Toggle theme"
+                        aria-label={nav.toggleTheme}
                         onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
                         className="text-header ml-2 focus:outline-none"
                     >
@@ -69,7 +59,7 @@ export default function Navbar() {
                 {/* Mobile Menu Button */}
                 <div className="md:hidden flex items-center gap-3">
                     <button
-                        aria-label="Toggle theme"
+                        aria-label={nav.toggleTheme}
                         onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
                         className="text-header mr-3 focus:outline-none"
                     >
@@ -77,7 +67,7 @@ export default function Navbar() {
                     </button>
 
                     <button
-                        aria-label="Toggle menu"
+                        aria-label={nav.toggleMenu}
                         aria-expanded={open}
                         onClick={() => setOpen(!open)}
                         className="text-header focus:outline-none"
@@ -110,11 +100,11 @@ export default function Navbar() {
 
                 <li className="pt-2">
                     <button
-                        aria-label="Toggle theme"
+                        aria-label={nav.toggleTheme}
                         onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
                         className="text-slate-300 font-medium text-lg"
                     >
-                        {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+                        {theme === "dark" ? nav.lightMode : nav.darkMode}
                     </button>
                 </li>
             </ul>

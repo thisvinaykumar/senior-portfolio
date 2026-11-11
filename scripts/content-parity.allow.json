@@ -1,0 +1,5 @@
+{
+  "_comment": "Deliberate removals only. Key = the exact baseline text or href; value = why it was removed and where the information lives now.",
+  "texts": {},
+  "hrefs": {}
+}

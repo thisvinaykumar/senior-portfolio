@@ -3,13 +3,14 @@ import { fadeInUp } from "../utils/motion";
 import Container from "../components/layout/Container";
 import SectionHeading from "../components/ui/SectionHeading";
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
-import { profile } from "../data/profile";
+import { profile } from "../content/profile";
+import { contact } from "../content/site";
 
 export default function Contact() {
     return (
         <section id="contact">
             <Container>
-                <SectionHeading title="Get in Touch" />
+                <SectionHeading title={contact.heading} />
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -17,9 +18,7 @@ export default function Contact() {
                     variants={fadeInUp}
                     className="mt-4 max-w-2xl"
                 >
-                    <p className="text-muted">
-                        Open to senior software engineer and system architect roles in product-based companies.
-                    </p>
+                    <p className="text-muted">{contact.line}</p>
 
                     <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-4">
                         <a

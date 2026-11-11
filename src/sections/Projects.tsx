@@ -1,14 +1,15 @@
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "../utils/motion";
+import { projectsSection } from "../content/site";
 import Container from "../components/layout/Container";
 import SectionHeading from "../components/ui/SectionHeading";
-import { projects } from "../data/projects";
+import { projects } from "../content/projects";
 
 export default function Projects() {
     return (
         <section id="projects">
             <Container>
-                <SectionHeading title="Flagship Projects" />
+                <SectionHeading title={projectsSection.heading} />
 
                 <motion.div
                     initial="hidden"
@@ -52,7 +53,7 @@ export default function Projects() {
                                         rel="noopener noreferrer"
                                         className="text-primary hover:underline"
                                     >
-                                        GitHub
+                                        {projectsSection.github}
                                     </a>
                                 )}
                                 {project.liveDemo && (
@@ -62,7 +63,7 @@ export default function Projects() {
                                         rel="noopener noreferrer"
                                         className="text-primary hover:underline"
                                     >
-                                        Live Demo
+                                        {projectsSection.liveDemo}
                                     </a>
                                 )}
                             </div>

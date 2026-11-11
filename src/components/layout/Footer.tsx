@@ -1,15 +1,17 @@
 import type { IconType } from "react-icons";
 import { FaEnvelope, FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaMedium } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { profile } from "../../data/profile";
+import { profile } from "../../content/profile";
+import { footer } from "../../content/site";
 
+const L = footer.socialLabels;
 const SOCIALS: { label: string; url: string; Icon: IconType }[] = [
-    { label: "LinkedIn", url: profile.linkedin, Icon: FaLinkedin },
-    { label: "GitHub", url: profile.github, Icon: FaGithub },
-    { label: "X (@thisvinaykumar)", url: profile.x, Icon: FaXTwitter },
-    { label: "Instagram (@thisvinaykumar)", url: profile.instagram, Icon: FaInstagram },
-    { label: "Facebook", url: profile.facebook, Icon: FaFacebook },
-    { label: "Medium (@javaScriptwithvinay)", url: profile.medium, Icon: FaMedium },
+    { label: L.linkedin, url: profile.linkedin, Icon: FaLinkedin },
+    { label: L.github, url: profile.github, Icon: FaGithub },
+    { label: L.x, url: profile.x, Icon: FaXTwitter },
+    { label: L.instagram, url: profile.instagram, Icon: FaInstagram },
+    { label: L.facebook, url: profile.facebook, Icon: FaFacebook },
+    { label: L.medium, url: profile.medium, Icon: FaMedium },
 ];
 
 export default function Footer() {
@@ -17,15 +19,15 @@ export default function Footer() {
         <footer className="bg-background/90 border-t border-slate-800 py-8 mt-16">
             <div className="max-w-7xl mx-auto px-6 md:px-16 flex flex-col md:flex-row justify-between items-center gap-4">
                 <div className="text-header text-sm text-center md:text-left">
-                    <p>&copy; 2026 Opsx Apex Private Limited. All rights reserved.</p>
+                    <p>{footer.copyright}</p>
                     <p className="mt-1 text-muted">
-                        Vinay Kumar (@thisvinaykumar)
+                        {footer.byline}
                         {" · "}
-                        <a href={profile.opsx} target="_blank" rel="noopener noreferrer" className="hover:text-primary">OpsX</a>
+                        <a href={profile.opsx} target="_blank" rel="noopener noreferrer" className="hover:text-primary">{footer.opsx}</a>
                         {" · "}
-                        <a href={profile.ngo} target="_blank" rel="noopener noreferrer" className="hover:text-primary">Shubhsaathi Foundation</a>
+                        <a href={profile.ngo} target="_blank" rel="noopener noreferrer" className="hover:text-primary">{footer.ngo}</a>
                         {" · "}
-                        <a href="#ecosystem" className="hover:text-primary">All profiles</a>
+                        <a href={footer.allProfiles.href} className="hover:text-primary">{footer.allProfiles.label}</a>
                     </p>
                 </div>
 
@@ -43,7 +45,7 @@ export default function Footer() {
                             <Icon size={18} />
                         </a>
                     ))}
-                    <a href={`mailto:${profile.email}`} aria-label="Email" title={profile.email} className="hover:text-primary transition">
+                    <a href={`mailto:${profile.email}`} aria-label={L.email} title={profile.email} className="hover:text-primary transition">
                         <FaEnvelope size={18} />
                     </a>
                 </div>

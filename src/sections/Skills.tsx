@@ -1,16 +1,17 @@
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "../utils/motion";
+import { skillsSection } from "../content/site";
 import Container from "../components/layout/Container";
 import Card from "../components/ui/Card";
 import SectionHeading from "../components/ui/SectionHeading";
-import { skills } from "../data/skills";
+import { skills } from "../content/skills";
 
 
 export default function Skills() {
     return (
         <section id="skills">
             <Container>
-                <SectionHeading title="Technical Expertise" />
+                <SectionHeading title={skillsSection.heading} />
                 <motion.div
                     initial="hidden"
                     whileInView="visible"

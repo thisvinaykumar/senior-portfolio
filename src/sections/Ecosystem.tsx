@@ -3,9 +3,10 @@ import type { IconType } from "react-icons";
 import { FaFacebook, FaGithub, FaGlobe, FaHandHoldingHeart, FaInstagram, FaLinkedin, FaMedium, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { fadeInUp, staggerContainer } from "../utils/motion";
+import { ecosystemSection } from "../content/site";
 import Container from "../components/layout/Container";
 import SectionHeading from "../components/ui/SectionHeading";
-import { ecosystem, type EcoIcon } from "../data/ecosystem";
+import { ecosystem, type EcoIcon } from "../content/ecosystem";
 
 const ICONS: Record<EcoIcon, IconType> = {
     linkedin: FaLinkedin,
@@ -23,7 +24,7 @@ export default function Ecosystem() {
     return (
         <section id="ecosystem">
             <Container>
-                <SectionHeading title="Ecosystem" />
+                <SectionHeading title={ecosystemSection.heading} />
                 <motion.div
                     initial="hidden"
                     whileInView="visible"
