@@ -5,7 +5,11 @@ export interface Project {
   techStack: string[];
   highlights: string[];
   github?: string;
+  /** Label for the GitHub link when it is not the full source, e.g. a docs-only repo. */
+  githubLabel?: string;
   liveDemo?: string;
+  /** Extra labelled links, shown after GitHub / Live Demo, for a link that is not a product demo. */
+  links?: { label: string; href: string }[];
 }
 
 export const projects: Project[] = [
@@ -23,6 +27,7 @@ export const projects: Project[] = [
       "Operations: NestJS API on two instances with rolling restarts, BullMQ workers on Redis and Socket.IO realtime on AWS EC2 behind nginx."
     ],
     github: "https://github.com/thisvinaykumar/opsx-erp",
+    githubLabel: "Architecture & docs",
     liveDemo: "https://opsx.in/"
   },
   {
@@ -37,7 +42,7 @@ export const projects: Project[] = [
       "Wallet safety: atomic claims, automatic reversal on failed supplier bookings and a manual-review path — backed by a 138-check offline test harness.",
       "Multi-level pricing: subscriber grade codes plus agency markups and discounts per product."
     ],
-    liveDemo: "https://www.easyres.in/"
+    links: [{ label: "Company site", href: "https://www.easyres.in/" }]
   },
   {
     title: "Gateway-free UPI Collection (OpsX module)",

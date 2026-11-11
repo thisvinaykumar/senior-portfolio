@@ -9,13 +9,13 @@ import { projects, type Project } from "../content/projects";
 import { chapters, projectsSection } from "../content/site";
 
 function Links({ project }: { project: Project }) {
-    if (!project.github && !project.liveDemo) return null;
+    if (!project.github && !project.liveDemo && !project.links?.length) return null;
     return (
-        <div className="mt-6 flex flex-wrap gap-4 text-sm">
+        <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-sm">
             {project.github && (
                 <a href={project.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-accent hover:underline">
                     <FaGithub size={14} aria-hidden="true" />
-                    {projectsSection.github}
+                    {project.githubLabel ?? projectsSection.github}
                 </a>
             )}
             {project.liveDemo && (
@@ -24,6 +24,12 @@ function Links({ project }: { project: Project }) {
                     <ArrowUpRight size={14} aria-hidden="true" />
                 </a>
             )}
+            {project.links?.map((l) => (
+                <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-accent hover:underline">
+                    {l.label}
+                    <ArrowUpRight size={14} aria-hidden="true" />
+                </a>
+            ))}
         </div>
     );
 }
@@ -80,11 +86,25 @@ export default function Projects() {
                     ))}
                 </div>
 
-                <div className="mt-5 grid gap-5 md:grid-cols-2">
-                    {rest.map((p, i) => (
-                        <Reveal key={p.title} delay={(i % 2) * 0.06}>
-                            <ProjectCard project={p} featured={false} index={i + featured.length} />
-                        </Reveal>
+                {/*
+                  Two-column masonry: each card is only as tall as its content and the next card in
+                  the same column starts right under it, so a short card never stretches to match a
+                  long neighbour. Cards alternate columns (03 left, 04 right, 05 left, ...).
+                  On phones the column wrappers are display:contents and `order` restores 03, 04, 05, ...
+                */}
+                <div className="mt-5 flex flex-col gap-5 md:flex-row md:items-start">
+                    {[0, 1].map((col) => (
+                        <div key={col} className="contents md:flex md:min-w-0 md:flex-1 md:flex-col md:gap-5">
+                            {rest.map((p, i) =>
+                                i % 2 === col ? (
+                                    <div key={p.title} style={{ order: i }}>
+                                        <Reveal delay={col * 0.06}>
+                                            <ProjectCard project={p} featured={false} index={i + featured.length} />
+                                        </Reveal>
+                                    </div>
+                                ) : null
+                            )}
+                        </div>
                     ))}
                 </div>
             </Container>

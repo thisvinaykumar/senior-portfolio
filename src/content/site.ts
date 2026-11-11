@@ -117,7 +117,7 @@ export const summary = {
     ["Senior Software Engineer & System Architect with 5+ years of experience in two worlds: high-scale multi-tenant travel SaaS, and complex distributed systems and ERPs. I deliver end to end — from architecture and data model to production deployment."],
     ["Works across Node.js, NestJS, Angular, TypeScript, MongoDB, Redis, Docker and AWS EC2, with a deep understanding of system design, microservices, API integration and performance. As Principal System Architect & Product Creator of OpsX (opsx.in), designed edge-first attendance, geofencing, RBAC and automated payroll for Indian SMEs."],
     ["At EasyRes Travel Technologies (since 2022) I am a full-stack engineer on a multi-tenant B2B/B2C travel marketplace — the top contributor to its Angular consumer and admin portals, with about 3,000 commits across 24 repositories. I built the B2B agent portal, created the travel-insurance and Via.com ferry microservices, and integrated suppliers and payments including 2GO, Barkota, Starlite Ferries, RateHawk, Via Hotels, Jayride and Xendit."],
-    ["I care about money-safe booking flows (atomic wallet claims, automatic reversals, a 138-check offline test harness), financial accuracy (OpsX posts payroll to a double-entry ledger in PostgreSQL), and code reviews — I have merged 480+ pull requests, including teammates' and release branches. I ship faster with AI coding assistants (Claude Code, GitHub Copilot) for boilerplate, test scaffolding and query tuning, while reviewing and testing every change myself."],
+    ["I care about money-safe booking flows (atomic wallet claims, automatic reversals, a 138-check offline test harness), financial accuracy (OpsX posts payroll to a double-entry ledger in PostgreSQL), and careful code review. I ship faster with AI coding assistants (Claude Code, GitHub Copilot) for boilerplate, test scaffolding and query tuning, while reviewing and testing every change myself."],
     [
       "I regularly write about JavaScript, software development, and tips for preparing for MNC interviews. Some of my posts are featured on ",
       { text: "Medium", href: mediumUrl },
@@ -172,7 +172,7 @@ export const contact = {
 };
 
 export const footer = {
-  copyright: "© 2026 Opsx Apex Private Limited. All rights reserved.",
+  copyright: "© 2026 Vinay Kumar. All rights reserved.",
   byline: "Vinay Kumar (@thisvinaykumar)",
   opsx: "OpsX",
   ngo: "Shubhsaathi Foundation",
