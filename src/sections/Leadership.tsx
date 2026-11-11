@@ -20,7 +20,7 @@ export default function Leadership() {
                         Actively mentored junior and mid-level developers, guiding them in best practices, code quality, and architectural decisions.
                     </p>
                     <p>
-                        Conducted regular code reviews, ensuring maintainable and scalable code across multiple SaaS modules including Flights, Holidays, Ferry, and Wallet systems.
+                        Reviewed and merged 480+ pull requests on the EasyRes consumer portal — teammates' feature branches as well as release and hot-fix branches — across Flights, Hotels, Ferry, Holidays, Insurance and Wallet modules.
                     </p>
                     <p>
                         Led feature ownership for critical modules, collaborating with product, backend, and QA teams to deliver high-impact features with measurable business value.

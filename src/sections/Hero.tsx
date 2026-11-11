@@ -22,7 +22,8 @@ export default function Hero() {
                     </p>
 
                     <p className="mt-6 text-muted max-w-2xl">
-                        5+ years building multi-tenant SaaS platforms. Creator of{" "}
+                        5+ years building multi-tenant SaaS platforms. Full-stack engineer on the EasyRes
+                        B2B/B2C travel marketplace since 2022, and creator of{" "}
                         <a href="https://opsx.in/" target="_blank" rel="noopener" className="text-primary hover:underline">OpsX</a>,
                         an industrial ERP and workforce OS — owned from architecture to production.
                     </p>

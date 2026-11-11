@@ -1,22 +1,26 @@
 export const skills = [
   {
     title: "Backend & Architecture",
-    items: ["Node.js", "NestJS", "Express", "TypeScript", "REST APIs", "Microservices", "Multi-Tenant ERP", "RBAC", "Event-driven (outbox, queues)"],
+    items: ["Node.js", "NestJS", "Express", "JavaScript (ES6+)", "TypeScript", "REST & SOAP APIs", "Microservices", "Multi-Tenant SaaS", "RBAC", "Event-driven (outbox, queues)", "Idempotent payments"],
   },
   {
     title: "Frontend & Mobile",
-    items: ["Angular", "React", "React Native (Expo)", "RxJS", "NgRx", "Tailwind"],
+    items: ["Angular", "React", "Next.js", "React Native (Expo)", "Capacitor", "RxJS", "Angular Material", "SCSS theming", "Tailwind"],
   },
   {
     title: "Data",
-    items: ["MongoDB", "PostgreSQL", "Redis", "BullMQ", "MySQL"],
+    items: ["MongoDB / Mongoose", "PostgreSQL", "Redis", "BullMQ", "SQLite (offline sync)"],
   },
   {
     title: "Cloud & DevOps",
-    items: ["Docker", "AWS EC2", "nginx", "Linux", "Zero-downtime rolling deploys"],
+    items: ["AWS (EC2, S3, SES)", "Docker", "nginx", "Linux", "Nx monorepo", "Zero-downtime rolling deploys", "Cron jobs"],
+  },
+  {
+    title: "Testing & AI-assisted engineering",
+    items: ["Offline test harnesses (in-memory DB, mocked suppliers)", "Integration & regression suites", "Claude Code", "GitHub Copilot"],
   },
   {
     title: "Domain",
-    items: ["Attendance & Payroll (PF, ESI, TDS)", "Edge / offline-first apps", "Travel booking", "Pricing & Wallet systems"],
+    items: ["Travel booking (flights, hotels, ferries, packages, insurance, visa)", "Supplier API integration", "Payment gateways & wallets", "Pricing, markups & grade codes", "Attendance & payroll (PF, ESI, TDS)", "Edge / offline-first apps"],
   },
 ];

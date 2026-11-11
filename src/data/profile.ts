@@ -21,8 +21,9 @@ export const profile = {
   about: `
     Senior Software Engineer & System Architect with 5+ years of experience building
     multi-tenant SaaS and ERP platforms with Node.js, NestJS, Angular and TypeScript on
-    MongoDB, Redis, Docker and AWS EC2. Creator of OpsX (opsx.in), an industrial ERP and
-    workforce OS — owned from architecture to production.
+    MongoDB, PostgreSQL, Redis and AWS. Full-stack engineer at EasyRes on a multi-tenant
+    B2B/B2C travel marketplace (top contributor, 20+ microservices), and creator of OpsX
+    (opsx.in), an industrial ERP and workforce OS — owned from architecture to production.
   `,
   socialLinks: [
     { platform: "GitHub", url: "https://github.com/thisvinaykumar" },
