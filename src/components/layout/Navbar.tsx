@@ -2,11 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { Menu, Moon, Search, Sun, X } from "lucide-react";
 import clsx from "clsx";
-import { nav } from "../../content/site";
+import { nav, resumeUrl } from "../../content/site";
 import { useUi } from "../../state/ui";
 import { paletteKey, scrollToId } from "../../utils/nav";
 
 const navItems = nav.items;
+// Header links at ≥1024px: the five sections in nav.primary, in page order.
+const primaryItems = navItems.filter((item) => nav.primary.includes(item.id));
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
@@ -81,9 +83,9 @@ export default function Navbar() {
                     <span>{nav.brand}</span>
                 </a>
 
-                {/* Desktop links */}
-                <ul className="hidden min-w-0 items-center gap-0.5 whitespace-nowrap xl:flex">
-                    {navItems.map((item) => (
+                {/* Desktop links: five core sections; the rest live in the menu and the palette */}
+                <ul className="hidden min-w-0 items-center gap-0.5 whitespace-nowrap lg:flex">
+                    {primaryItems.map((item) => (
                         <li key={item.id}>
                             <a
                                 href={`#${item.id}`}
@@ -101,6 +103,14 @@ export default function Navbar() {
                 </ul>
 
                 <div className="flex shrink-0 items-center gap-2">
+                    <a
+                        href={resumeUrl}
+                        download
+                        aria-label={nav.resume.aria}
+                        className="btn btn-primary hidden whitespace-nowrap !px-3.5 !py-1.5 !text-sm lg:inline-flex"
+                    >
+                        {nav.resume.label}
+                    </a>
                     <button
                         type="button"
                         onClick={() => setPaletteOpen(true)}
@@ -124,7 +134,7 @@ export default function Navbar() {
                         aria-expanded={open}
                         aria-controls="mobile-menu"
                         onClick={() => setOpen(!open)}
-                        className="grid h-9 w-9 place-items-center rounded-xl border border-line text-muted xl:hidden"
+                        className="grid h-9 w-9 place-items-center rounded-xl border border-line text-muted lg:hidden"
                     >
                         {open ? <X size={18} /> : <Menu size={18} />}
                     </button>
@@ -137,7 +147,7 @@ export default function Navbar() {
             <div
                 id="mobile-menu"
                 className={clsx(
-                    "absolute inset-x-0 top-16 border-b border-line bg-[var(--bg)] px-5 pb-6 pt-2 transition-all duration-300 ease-out xl:hidden",
+                    "absolute inset-x-0 top-16 border-b border-line bg-[var(--bg)] px-5 pb-6 pt-2 transition-all duration-300 ease-out lg:hidden",
                     open ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-3 opacity-0",
                 )}
                 aria-hidden={!open}

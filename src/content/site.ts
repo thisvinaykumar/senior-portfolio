@@ -25,6 +25,10 @@ export const nav = {
     { label: "Ecosystem", id: "ecosystem" },
     { label: "Contact", id: "contact" },
   ],
+  // The header at ≥1024px shows only these five (what a recruiter opens first) plus the résumé
+  // button; every section stays in the menu and in the Cmd/K palette, so no link leaves the page.
+  primary: ["architecture", "experience", "projects", "skills", "contact"],
+  resume: { label: "Resume", aria: "Download the résumé (PDF)" },
   menu: "Menu",
   search: "Search",
   lightMode: "Light Mode",
