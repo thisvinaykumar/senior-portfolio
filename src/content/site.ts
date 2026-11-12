@@ -35,7 +35,8 @@ export const nav = {
 
 export const hero = {
   name: "Vinay Kumar",
-  tagline: "Senior Software Engineer & System Architect · Node.js · NestJS · Angular · Multi-Tenant ERP",
+  role: "System Architect, Full-Stack Software Developer & Founder of OpsX",
+  tagline: "Node.js · NestJS · Angular · TypeScript · Multi-Tenant Enterprise ERP · SaaS Architecture",
   intro: [
     "5+ years building multi-tenant SaaS platforms. Full-stack engineer on the EasyRes B2B/B2C travel marketplace since 2022, and creator of ",
     { text: "OpsX", href: "https://opsx.in/" },

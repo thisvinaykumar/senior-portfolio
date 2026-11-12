@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thisvinaykumar.opsx.in/sitemap.xml
+Sitemap: https://vinay.opsx.in/sitemap.xml

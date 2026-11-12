@@ -68,6 +68,7 @@ export default function Hero() {
 
                         <motion.h1 {...up(0.05)} className="text-5xl font-semibold leading-[1.02] tracking-[-0.03em] sm:text-6xl md:text-7xl">
                             <span className="text-gradient">{hero.name}</span>
+                            <span className="mt-4 block text-xl font-medium leading-snug tracking-[-0.01em] text-ink sm:text-2xl">{hero.role}</span>
                         </motion.h1>
 
                         <motion.p {...up(0.12)} className="mt-5 text-lg text-ink md:text-xl">

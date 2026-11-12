@@ -1,6 +1,6 @@
 export const profile = {
   name: "Vinay Kumar",
-  role: "Senior Software Engineer & System Architect",
+  role: "System Architect & Senior Full-Stack Software Developer",
   experience: "5+ years",
   location: "Delhi, India",
   email: "vinaykumarmaanyvar@gmail.com",
@@ -15,7 +15,7 @@ export const profile = {
   instagramAuthor: "https://www.instagram.com/authorvinay",
   youtubeMagadhKaMunshi: "https://www.youtube.com/@MagadhKaMunshi",
   instagramMagadhKaMunshi: "https://www.instagram.com/MagadhKaMunshi",
-  portfolioWebsite: "https://thisvinaykumar.opsx.in",
+  portfolioWebsite: "https://vinay.opsx.in",
   opsx: "https://opsx.in/",
   ngo: "https://shubhsaathi.org/",
   about: `
