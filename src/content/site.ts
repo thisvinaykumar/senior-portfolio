@@ -8,7 +8,7 @@ export type Run = string | { text: string; href: string } | { text: string; stro
 export type Paragraph = Run[];
 
 export const resumeUrl = "/assets/Vinay_Kumar_Senior_Software_Engineer_System_Architect.pdf";
-export const mediumUrl = "https://medium.com/@javaScriptwithvinay";
+export const mediumUrl = "https://medium.com/@thisvinaykumar";
 
 export const nav = {
   brand: "Vinay Kumar",
@@ -188,7 +188,7 @@ export const footer = {
     x: "X (@thisvinaykumar)",
     instagram: "Instagram (@thisvinaykumar)",
     facebook: "Facebook",
-    medium: "Medium (@javaScriptwithvinay)",
+    medium: "Medium (@thisvinaykumar)",
     email: "Email",
   },
 };
