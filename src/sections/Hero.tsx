@@ -58,6 +58,16 @@ export default function Hero() {
             <Container>
                 <div className="grid items-center gap-12 lg:grid-cols-12">
                     <div className="lg:col-span-7">
+                        <motion.img
+                            {...up(0)}
+                            src="/vinay-kumar.jpg"
+                            alt="Vinay Kumar"
+                            width={480}
+                            height={480}
+                            decoding="async"
+                            fetchPriority="high"
+                            className="mb-6 h-20 w-20 rounded-full border-2 border-line object-cover shadow-lg sm:h-24 sm:w-24"
+                        />
                         <motion.p {...up(0)} className="chip mb-6 !text-[0.75rem]">
                             <span className="relative flex h-2 w-2" aria-hidden="true">
                                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green opacity-60 motion-reduce:hidden" />
