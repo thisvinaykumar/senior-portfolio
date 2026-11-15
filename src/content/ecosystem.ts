@@ -31,7 +31,7 @@ export const ecosystem: EcoGroup[] = [
     title: "Tech Blog",
     blurb: "JavaScript, TypeScript, Node.js, AI and engineering careers.",
     links: [
-      { label: "Medium", handle: "@javaScriptwithvinay", url: "https://medium.com/@javaScriptwithvinay", icon: "medium" },
+      { label: "Medium", handle: "@thisvinaykumar", url: "https://medium.com/@thisvinaykumar", icon: "medium" },
     ],
   },
   {
