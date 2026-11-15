@@ -31,13 +31,16 @@ export const ecosystem: EcoGroup[] = [
     title: "Tech Blog",
     blurb: "JavaScript, TypeScript, Node.js, AI and engineering careers.",
     links: [
-      { label: "Medium", handle: "@javaScriptwithvinay", url: "https://medium.com/@javaScriptwithvinay", icon: "medium" },
+      { label: "Medium", handle: "@thisvinaykumar", url: "https://medium.com/@thisvinaykumar", icon: "medium" },
     ],
   },
   {
     title: "SaaS Architecture",
     blurb: "OpsX — an independent SaaS architecture initiative: multi-tenant industrial ERP and workforce OS.",
-    links: [{ label: "OpsX", handle: "opsx.in", url: "https://opsx.in/", icon: "web" }],
+    links: [
+      { label: "OpsX", handle: "opsx.in", url: "https://opsx.in/", icon: "web" },
+      { label: "OpsX · YouTube", handle: "@opsxofficial", url: "https://www.youtube.com/@opsxofficial", icon: "youtube" },
+    ],
   },
   {
     title: "NGO",
